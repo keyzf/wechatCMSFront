@@ -1,0 +1,20 @@
+{
+  "name": "wechat-cms-client",
+  "description": "",
+  "main": "",
+  "authors": [
+    "wind634 <2911184332@qq.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/wind634/wechatCMSFront",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
