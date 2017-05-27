@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import { Button, Radio, Icon } from 'antd';
 import './App.css';
-const ButtonGroup = Button.Group;
+
+import { Button } from 'antd';
+
 
 class App extends Component {
 
@@ -12,11 +13,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Button type="primary">Primary</Button>
-      </div>
+        <div className="App">
+            <Button type="primary">Primary</Button>
+            <Button>Default</Button>
+            <Button type="dashed">Dashed</Button>
+            <Button type="danger">Danger</Button>
+        </div>
     );
   }
+
 }
 
 export default App;
