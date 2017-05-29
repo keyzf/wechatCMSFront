@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
-import store from './store'
+import {history, store} from './store'
+import { ConnectedRouter } from 'react-router-redux'
 
 import App from './App';
 import Base from './pages/Base';
@@ -25,7 +26,7 @@ import {
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router>
+        <ConnectedRouter history={history}>
             <LocaleProvider locale={enUS}>
                 <div>
                     <ul>
@@ -40,7 +41,7 @@ ReactDOM.render(
                     <Route path="/about" component={NotFound}/>
                 </div>
             </LocaleProvider>
-        </Router>
+        </ConnectedRouter>
     </Provider>    ,
         document.getElementById('root'));
 
