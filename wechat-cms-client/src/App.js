@@ -3,8 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {onTestAction} from './actions/testAction'
+import { onTestAction } from './actions/testAction'
 
+import Home from './pages/Home'
+import User from './pages/User'
 
 import {
     BrowserRouter as Router,
@@ -85,9 +87,10 @@ class App extends Component {
                                 <Breadcrumb.Item>User</Breadcrumb.Item>
                                 <Breadcrumb.Item>Bill</Breadcrumb.Item>
                             </Breadcrumb>
-                            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-                                Bill is a cat.
-                            </div>
+
+                            <Route exact path="/" component={Home}></Route>
+                            <Route path="/user" component={User}></Route>
+
                         </Content>
                         <Footer style={{ textAlign: 'center' }}>
                             Ant Design ©2016 Created by Ant UED
