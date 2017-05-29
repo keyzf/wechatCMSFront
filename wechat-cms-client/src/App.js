@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {onTestAction} from './actions/testAction'
+
+
 import {
     BrowserRouter as Router,
     Route,
@@ -94,4 +99,19 @@ class App extends Component {
     }
 }
 
-export default App;
+//映射Redux state到组件的属性
+function mapStateToProps(state) {
+    return { text: state.testReducer.text }
+}
+
+//映射Redux actions到组件的属性
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({
+        onTestAction:onTestAction,
+    }, dispatch);
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
+
+

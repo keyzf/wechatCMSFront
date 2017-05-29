@@ -28,18 +28,7 @@ ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <LocaleProvider locale={enUS}>
-                <div>
-                    <ul>
-                        <li><Link to="/">Base</Link></li>
-                        <li><Link to="/about">NotFound</Link></li>
-
-                    </ul>
-
-                    <hr/>
-
-                    <Route exact path="/" component={Base}/>
-                    <Route path="/about" component={NotFound}/>
-                </div>
+                <Base />
             </LocaleProvider>
         </ConnectedRouter>
     </Provider>    ,
