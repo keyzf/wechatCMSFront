@@ -7,7 +7,7 @@ import bg from "../asserts/bg.jpeg"
 
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import { onTestAction, argTestAction } from '../actions/testAction'
+import { onTestAction, argTestAction, AsyncTestAction } from '../actions/testAction'
 
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
@@ -20,7 +20,8 @@ class NormalLoginForm extends Component {
             if (!err) {
                 console.log('Received values of form: ', values);
                 // 发送请求到服务器登录
-                this.props.argTestAction("abcde");
+                //this.props.argTestAction("abcde");
+                this.props.AsyncTestAction();
             }
         });
     }
@@ -84,6 +85,7 @@ function mapDispatchToProps(dispatch){
     return bindActionCreators({
         onTestAction:onTestAction,
         argTestAction:argTestAction,
+        AsyncTestAction, AsyncTestAction
     }, dispatch);
 }
 

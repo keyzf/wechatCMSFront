@@ -24,7 +24,7 @@ const testReducer = (state = initialState, action) => {
             return Object.assign({}, state, action.playload)
         case aysncTestActionType:
 
-            return initialState
+            return Object.assign({}, state, {text: "ASYNC TEST"})
         default:
             return initialState
     }
