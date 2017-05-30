@@ -20,6 +20,8 @@ import {
 
 import DevTools from './containers/DevTools'
 
+//<DevTools />
+
 ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
@@ -31,7 +33,7 @@ ReactDOM.render(
                     <Route path="/login" component={Login}>
 
                     </Route>
-                    <DevTools />
+
                 </div>
             </LocaleProvider>
         </ConnectedRouter>
