@@ -9,7 +9,7 @@ import createHistory from 'history/createBrowserHistory'
 import { Route } from 'react-router'
 
 import { routerMiddleware } from 'react-router-redux'
-import thunk from 'redux-thunk'
+import thunkMiddleware from 'redux-thunk'
 
 import DevTools from '../containers/DevTools'
 
@@ -19,7 +19,7 @@ const middleware = routerMiddleware(history)
 
 const enhancer = compose(
     //你要使用的中间件，放在前面
-    applyMiddleware(middleware,thunk),
+    applyMiddleware(middleware,thunkMiddleware),
     //必须的！启用带有monitors（监视显示）的DevTools
     DevTools.instrument()
 )

@@ -13,6 +13,7 @@ import { LocaleProvider } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
 import {
     BrowserRouter as Router,
+    Route
 } from 'react-router-dom'
 
 import DevTools from './containers/DevTools'
@@ -22,7 +23,8 @@ ReactDOM.render(
         <ConnectedRouter history={history}>
             <LocaleProvider locale={enUS}>
                 <div style={{height:'100%'}}>
-                    <App />
+                    <Route name="home" breadcrumbName="Home" exact path="/" component={App}></Route>
+
                     <DevTools />
                 </div>
             </LocaleProvider>

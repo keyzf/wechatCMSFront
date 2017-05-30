@@ -35,6 +35,10 @@ class App extends Component {
         });
     }
 
+    componentWillMount(){
+        console.log("dsds....")
+        console.log(this.props)
+    }
 
     render() {
         return (
@@ -77,7 +81,7 @@ class App extends Component {
                         </Header>
                         <Content style={{ margin: '0 16px' }}>
 
-                            <Route name="home" breadcrumbName="Home" exact path="/" component={Home}></Route>
+
                             <Route path="/user" component={User}></Route>
 
                         </Content>
