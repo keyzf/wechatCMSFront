@@ -11,7 +11,8 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 import { LocaleProvider } from 'antd';
-import enUS from 'antd/lib/locale-provider/en_US';
+import en_US from 'antd/lib/locale-provider/en_US'
+
 import {
     BrowserRouter as Router,
     Route
@@ -22,9 +23,9 @@ import DevTools from './containers/DevTools'
 ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
-            <LocaleProvider locale={enUS}>
+            <LocaleProvider >
                 <div style={{height:'100%'}}>
-                    <Route path="/" exact component={App}>
+                    <Route path="/" exact component={App} >
 
                     </Route>
                     <Route path="/login" component={Login}>

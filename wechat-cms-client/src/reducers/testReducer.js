@@ -6,7 +6,7 @@
  * Created by wangjiang on 17/5/18.
  */
 import { combineReducers } from 'redux';
-import { testActionType }  from '../constants/test';
+import { testActionType, argTestActionType, aysncTestActionType }  from '../constants/test';
 
 //reducer
 const initialState = {
@@ -16,11 +16,17 @@ const initialState = {
 const testReducer = (state = initialState, action) => {
     switch (action.type) {
         case testActionType:
-            return {
-                text: "NO TEST"
-            }
+            // 不修改原来的state对象返回一个新的state对象
+            return Object.assign({}, state, {text: "NO TEST"})
+            // 如果state是数组则采用下一写法
+            //return [...state, newItem];
+        case argTestActionType:
+            return Object.assign({}, state, action.playload)
+        case aysncTestActionType:
+
+            return initialState
         default:
-            return initialState;
+            return initialState
     }
 }
 

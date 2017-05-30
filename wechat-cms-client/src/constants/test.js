@@ -4,3 +4,7 @@
 
 
 export const testActionType = 'TEST';
+
+export const argTestActionType = 'ARG_TEST';
+
+export const aysncTestActionType = 'ASYNC_TEST';
