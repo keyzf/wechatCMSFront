@@ -21,7 +21,7 @@ class NormalLoginForm extends Component {
                 console.log('Received values of form: ', values);
                 // 发送请求到服务器登录
                 //this.props.argTestAction("abcde");
-                this.props.AsyncTestAction();
+                //this.props.AsyncTestAction();
             }
         });
     }

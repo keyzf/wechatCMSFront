@@ -12,6 +12,8 @@ export const argTestAction = (arg)=> ({"type":argTestActionType, playload:{text:
 // 测试的异步action
 export const AsyncTestAction =() => {
     return dispatch => {
+
+
         setTimeout(() => {
             dispatch({type: aysncTestActionType})
         }, 3000)
