@@ -10,9 +10,6 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import { onTestAction, argTestAction, AsyncTestAction } from '../actions/testAction'
 
-import axios from 'axios'
-import '../mock/userdata'
-
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 
@@ -27,14 +24,7 @@ class NormalLoginForm extends Component {
                 //this.props.argTestAction("abcde");
                 //this.props.AsyncTestAction();
 
-                axios({
-                    url: '/login/',
-                    method: 'get',
-                    data: '',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }).then(function (response) {
+                login().then(function (response) {
                     console.log("success...")
                     console.log(response)
                 }).catch(function (error) {
