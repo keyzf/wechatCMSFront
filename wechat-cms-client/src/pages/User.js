@@ -10,7 +10,8 @@ import { Link } from 'react-router-dom'
 class User extends Component {
 
     componentWillMount(){
-        console.log(this.props.routes)
+        //console.log(this.props.routes)
+        console.log(this)
     }
 
     render() {

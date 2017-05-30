@@ -23,8 +23,7 @@ ReactDOM.render(
         <ConnectedRouter history={history}>
             <LocaleProvider locale={enUS}>
                 <div style={{height:'100%'}}>
-                    <Route name="home" breadcrumbName="Home" exact path="/" component={App}></Route>
-
+                    <App />
                     <DevTools />
                 </div>
             </LocaleProvider>
