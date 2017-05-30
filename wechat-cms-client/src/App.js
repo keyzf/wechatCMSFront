@@ -35,6 +35,7 @@ class App extends Component {
         });
     }
 
+
     render() {
         return (
             <Router>
@@ -48,10 +49,11 @@ class App extends Component {
                         <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['6']}>
                             <SubMenu
                                 key="sub1"
-                                title={<span><Icon type="user" /><span className="nav-text">User</span></span>}
+                                title={<span><Icon type="user" /><span className="nav-text">
+                                User</span></span>}
                             >
-                                <Menu.Item key="1">Tom</Menu.Item>
-                                <Menu.Item key="2">Bill</Menu.Item>
+                                <Menu.Item key="1"><Link to="/">home</Link></Menu.Item>
+                                <Menu.Item key="2"><Link to="/user">user</Link></Menu.Item>
                                 <Menu.Item key="3">Alex</Menu.Item>
                             </SubMenu>
                             <SubMenu
@@ -71,24 +73,11 @@ class App extends Component {
                     </Sider>
                     <Layout>
                         <Header style={{ background: '#fff', padding: 0 }}>
-                            <Menu
-                                theme="dark"
-                                mode="horizontal"
-                                defaultSelectedKeys={['2']}
-                                style={{ lineHeight: '64px' }}
-                            >
-                                <Menu.Item key="1">nav 1</Menu.Item>
-                                <Menu.Item key="2">nav 2</Menu.Item>
-                                <Menu.Item key="3">nav 3</Menu.Item>
-                            </Menu>
+
                         </Header>
                         <Content style={{ margin: '0 16px' }}>
-                            <Breadcrumb style={{ margin: '12px 0' }}>
-                                <Breadcrumb.Item>User</Breadcrumb.Item>
-                                <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                            </Breadcrumb>
 
-                            <Route exact path="/" component={Home}></Route>
+                            <Route name="home" breadcrumbName="Home" exact path="/" component={Home}></Route>
                             <Route path="/user" component={User}></Route>
 
                         </Content>

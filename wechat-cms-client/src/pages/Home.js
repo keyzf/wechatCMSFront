@@ -6,12 +6,26 @@
  * Created by wangjiang on 17/5/27.
  */
 import React, { Component } from 'react';
+import {Breadcrumb} from 'antd';
+
 
 class Home extends Component {
 
+    componentWillMount(){
+        console.log(this.props)
+    }
+
     render() {
         return (
-            <div>this is home...</div>
+            <div>
+                this is home...
+                <br/>
+                dsdds
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                dsd
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                dsdsdsffs
+            </div>
         );
     }
 }
