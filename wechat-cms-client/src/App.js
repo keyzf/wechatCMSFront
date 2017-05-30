@@ -80,7 +80,7 @@ class App extends Component {
                         </Header>
                         <Content style={{ margin: '0 16px' }}>
 
-                            <Route path="/" exact component={Home}></Route>
+                            <Route path="/home" exact component={Home}></Route>
                             <Route path="/user" component={User}></Route>
 
                         </Content>

@@ -5,6 +5,7 @@ import {history, store} from './store'
 import { ConnectedRouter } from 'react-router-redux'
 
 import App from './App'
+import Login from './pages/Login'
 
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
@@ -23,7 +24,12 @@ ReactDOM.render(
         <ConnectedRouter history={history}>
             <LocaleProvider locale={enUS}>
                 <div style={{height:'100%'}}>
-                    <App />
+                    <Route path="/" exact component={App}>
+
+                    </Route>
+                    <Route path="/login" component={Login}>
+
+                    </Route>
                     <DevTools />
                 </div>
             </LocaleProvider>
