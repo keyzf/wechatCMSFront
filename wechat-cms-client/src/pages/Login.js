@@ -10,11 +10,20 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import { onTestAction, argTestAction, AsyncTestAction } from '../actions/testAction'
 
+import { loginTitle} from '../config'
+
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 
 
+
 class NormalLoginForm extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
@@ -46,8 +55,9 @@ class NormalLoginForm extends Component {
             <div className="warpcontainer" style={{ backgroundImage: `url(${bg})`  }}>
                 <Form onSubmit={this.handleSubmit} className="login-form">
                     <h2>
-                        {this.props.text}
+                        {loginTitle}
                     </h2>
+                    <br/>
                     <FormItem>
                         {getFieldDecorator('userName', {
                             rules: [{ required: true, message: '请输入用户名!' }],
@@ -94,7 +104,7 @@ function mapDispatchToProps(dispatch){
     return bindActionCreators({
         onTestAction:onTestAction,
         argTestAction:argTestAction,
-        AsyncTestAction, AsyncTestAction
+        AsyncTestAction:AsyncTestAction
     }, dispatch);
 }
 
