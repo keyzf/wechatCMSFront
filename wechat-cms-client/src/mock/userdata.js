@@ -27,6 +27,7 @@ Mock.mock('/login/', {
     image:Mock.mock('@Image'),
     content:Mock.mock('@word'),
     url: Mock.mock('@url'),
+    token:Random.sentence(3),
     success: true
 })
 

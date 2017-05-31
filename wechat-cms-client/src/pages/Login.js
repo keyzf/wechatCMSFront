@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import "./Login.css"
 import bg from "../asserts/bg.jpeg"
-import {login} from '../ajax'
+
 import {
     Redirect,
 } from 'react-router-dom'
@@ -22,10 +22,6 @@ const FormItem = Form.Item;
 
 
 class NormalLoginForm extends Component {
-
-    constructor(props) {
-        super(props);
-    }
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -120,8 +116,8 @@ const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
 //映射Redux state到组件的属性
 function mapStateToProps(state) {
     return {
-        isLogin: state.login.isLogin,
-        islogging: state.login.islogging
+        isLogin: state.user.isLogin,
+        islogging: state.user.islogging
     }
 }
 

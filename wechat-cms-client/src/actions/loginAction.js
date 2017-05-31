@@ -6,7 +6,7 @@
 import { loginSuccessActionType, loginFailActionType, loginErrorActionType, loginingActionType }  from '../constants/types';
 
 import {login} from '../ajax'
-import {history, store} from '../store'
+import {store} from '../store'
 import { push } from 'react-router-redux'
 import { message } from 'antd';
 
