@@ -15,7 +15,7 @@ import { doLogin } from '../actions/loginAction'
 
 import { loginTitle} from '../config'
 
-import { Spin, Alert } from 'antd'
+import { Spin } from 'antd'
 import { Form, Icon, Input, Button, Checkbox } from 'antd'
 const FormItem = Form.Item;
 
@@ -57,12 +57,9 @@ class NormalLoginForm extends Component {
 
     render() {
         //this.props.isLogin
-        if (this.props.isLogin) {
-            const { from } = this.props.location.state || { from: { pathname: '/' } }
-            return (
-                <Redirect to={from}/>
-            )
-        }
+        //if (this.props.isLogin) {
+        //    this.props.
+        //}
 
         const { getFieldDecorator } = this.props.form
         let formContent = (<div>
