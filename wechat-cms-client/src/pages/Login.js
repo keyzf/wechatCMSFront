@@ -8,7 +8,7 @@ import {login} from '../ajax'
 
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import { onTestAction, argTestAction, AsyncTestAction } from '../actions/testAction'
+import { doLogin } from '../actions/loginAction'
 
 import { loginTitle} from '../config'
 
@@ -29,17 +29,20 @@ class NormalLoginForm extends Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+
                 // 发送请求到服务器登录,这里采用redux
+                this.props.doLogin();
+
                 //this.props.argTestAction("abcde");
                 //this.props.AsyncTestAction();
 
-                login().then(function (response) {
-                    console.log("success...")
-                    console.log(response)
-                }).catch(function (error) {
-                    // 请求失败
-                    console.log(error);
-                });
+                //login().then(function (response) {
+                //    console.log("success...")
+                //    console.log(response)
+                //}).catch(function (error) {
+                //    // 请求失败
+                //    console.log(error);
+                //});
             }
         });
     }
@@ -56,6 +59,7 @@ class NormalLoginForm extends Component {
                 <Form onSubmit={this.handleSubmit} className="login-form">
                     <h2>
                         {loginTitle}
+                        {this.props.isLogin== true ? "true":"false"}
                     </h2>
                     <br/>
                     <FormItem>
@@ -96,15 +100,15 @@ const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
 
 //映射Redux state到组件的属性
 function mapStateToProps(state) {
-    return { text: state.testReducer.text }
+    return {
+        isLogin: state.loginReducer.isLogin
+    }
 }
 
 //映射Redux actions到组件的属性
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
-        onTestAction:onTestAction,
-        argTestAction:argTestAction,
-        AsyncTestAction:AsyncTestAction
+        doLogin: doLogin
     }, dispatch);
 }
 

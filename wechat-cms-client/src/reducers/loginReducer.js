@@ -14,18 +14,17 @@ import { loginSuccessActionType, loginFailActionType, loginErrorActionType }  fr
 //reducer
 const initialState = {
     // 登录 默认false
-    login: false
+    isLogin: false
 }
 
 const loginReducer = (state = initialState, action) => {
     switch (action.type) {
         case loginSuccessActionType:
             // 不修改原来的state对象返回一个新的state对象
-            return Object.assign({}, state, {login: true})
+            return Object.assign({}, state, {isLogin: true})
         case loginFailActionType:
             return initialState
         case loginErrorActionType:
-
             return initialState
         default:
             return initialState

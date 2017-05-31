@@ -6,8 +6,11 @@ import { routerReducer } from 'react-router-redux'
 
 
 import testReducer from './testReducer'
+import login from './loginReducer'
+
 const rootReducer = combineReducers({
     testReducer, //导航相关
+    loginReducer: login.loginReducer,
     router:routerReducer
 });
 
