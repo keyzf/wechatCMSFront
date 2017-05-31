@@ -84,12 +84,20 @@ class App extends Component {
                     >
                         <div className="logo" />
                         <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['6']}>
+
+                            <SubMenu
+                                key="su1"
+                                title={<span><Icon type="user" /><span className="nav-text">
+                                User</span></span>}
+                            >
+                            </SubMenu>
+
                             <SubMenu
                                 key="sub1"
                                 title={<span><Icon type="user" /><span className="nav-text">
                                 User</span></span>}
                             >
-                                <Menu.Item key="1"><Link to="/admin/h">Home</Link></Menu.Item>
+                                <Menu.Item key="1"><Link to="/admin">Home</Link></Menu.Item>
                                 <Menu.Item key="2"><Link to="/admin/user">user</Link></Menu.Item>
                                 <Menu.Item key="3">Alex</Menu.Item>
                             </SubMenu>
@@ -121,7 +129,7 @@ class App extends Component {
                             </Row>
                         </Header>
                         <Content style={{ margin: '0 16px' }}>
-                            <Route path="/admin/h"   component={Home} />
+                            <Route path="/admin/index"   component={Home} />
                             <Route path="/admin/user"   component={User} />
                         </Content>
                         <Footer style={{ textAlign: 'center' }}>
