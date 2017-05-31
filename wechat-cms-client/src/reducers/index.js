@@ -10,7 +10,7 @@ import login from './loginReducer'
 
 const rootReducer = combineReducers({
     testReducer, //导航相关
-    loginReducer: login.loginReducer,
+    login: login.loginReducer,
     router:routerReducer
 });
 

@@ -6,7 +6,7 @@ var Mock = require('mockjs')
 
 // 设置响应时间
 Mock.setup({
-    timeout: '1000-3000'
+    timeout: '1000-2000'
 })
 
 

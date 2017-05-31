@@ -101,7 +101,7 @@ const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
 //映射Redux state到组件的属性
 function mapStateToProps(state) {
     return {
-        isLogin: state.loginReducer.isLogin
+        isLogin: state.login.isLogin
     }
 }
 
