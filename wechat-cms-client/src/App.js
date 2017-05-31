@@ -4,6 +4,8 @@ import './App.css';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import { doLogout } from './actions/loginAction'
+import { ConnectedRouter } from 'react-router-redux'
+import {history} from './store'
 
 import Home from './pages/Home'
 import User from './pages/User'
@@ -74,7 +76,6 @@ class App extends Component {
         )
 
         return (
-            <Router>
                 <Layout className="container">
                     <Sider
                         collapsible
@@ -88,8 +89,8 @@ class App extends Component {
                                 title={<span><Icon type="user" /><span className="nav-text">
                                 User</span></span>}
                             >
-                                <Menu.Item key="1"><Link to="home">Home</Link></Menu.Item>
-                                <Menu.Item key="2"><Link to="/user">user</Link></Menu.Item>
+                                <Menu.Item key="1"><Link to="/admin/h">Home</Link></Menu.Item>
+                                <Menu.Item key="2"><Link to="/admin/user">user</Link></Menu.Item>
                                 <Menu.Item key="3">Alex</Menu.Item>
                             </SubMenu>
                             <SubMenu
@@ -120,15 +121,14 @@ class App extends Component {
                             </Row>
                         </Header>
                         <Content style={{ margin: '0 16px' }}>
-                            <Route path={`${this.props.match.url}home`}   component={Home} />
-                            <Route path="/user"   component={User} />
+                            <Route path="/admin/h"   component={Home} />
+                            <Route path="/admin/user"   component={User} />
                         </Content>
                         <Footer style={{ textAlign: 'center' }}>
                             辰枫科技©2017 Created by Code V
                         </Footer>
                     </Layout>
                 </Layout>
-            </Router>
         );
     }
 }

@@ -8,6 +8,7 @@ import App from './App'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import User from './pages/User'
+import NotFound from './pages/NotFound'
 
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
@@ -27,14 +28,18 @@ import DevTools from './containers/DevTools'
 
 ReactDOM.render(
     <Provider store={store}>
-        <ConnectedRouter history={history} routes={data}>
+
+        <ConnectedRouter history={history}>
             <LocaleProvider >
                 <div style={{height:'100%'}}>
-                    <Route path="/" exact component={App} />
-                    <Route path="/login" component={Login} />
+                    <Route exact path="/" component={App}/>
+                    <Route path="/login" component={Login}/>
+                    <Route path="/admin" component={App}/>
+                    <Route component={NotFound}/>
                 </div>
             </LocaleProvider>
         </ConnectedRouter>
+
     </Provider>,
     document.getElementById('root'));
 
