@@ -22,7 +22,7 @@ export const doLogin = ()=> {
                 message.success('登录成功')
                 // 将用户信息及加密的token写入localstorge
                 localStorage.user = JSON.stringify(response.data.user)
-                localStorage.token = response.data.user.token
+                localStorage.token = response.data.token
                 // 成功之后跳转到进入页面
                 store.dispatch(push('/'))
 
