@@ -23,7 +23,6 @@ class NormalLoginForm extends Component {
         super(props);
     }
 
-
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
@@ -59,7 +58,8 @@ class NormalLoginForm extends Component {
                 <Form onSubmit={this.handleSubmit} className="login-form">
                     <h2>
                         {loginTitle}
-                        {this.props.isLogin== true ? "true":"false"}
+                        isLogin:{this.props.isLogin== true ? "true":"false"}
+                        islogging:{this.props.islogging== true ? "true":"false"}
                     </h2>
                     <br/>
                     <FormItem>
@@ -101,14 +101,15 @@ const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
 //映射Redux state到组件的属性
 function mapStateToProps(state) {
     return {
-        isLogin: state.login.isLogin
+        isLogin: state.login.isLogin,
+        islogging: state.login.islogging
     }
 }
 
 //映射Redux actions到组件的属性
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
-        doLogin: doLogin
+        doLogin: doLogin,
     }, dispatch);
 }
 

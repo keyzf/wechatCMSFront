@@ -3,12 +3,13 @@
  */
 
 
-import { loginSuccessActionType, loginFailActionType, loginErrorActionType }  from '../constants/types';
+import { loginSuccessActionType, loginFailActionType, loginErrorActionType, loginingActionType }  from '../constants/types';
 
 import {login} from '../ajax'
 
 export const doLogin = ()=> {
     return dispatch => {
+        dispatch({type: loginingActionType})
         // 发送ajax请求
         login().then(function (response) {
             console.log(response)
