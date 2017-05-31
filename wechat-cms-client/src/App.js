@@ -42,17 +42,14 @@ class App extends Component {
     render() {
         // 渲染的时候进行判断, 如果处于未登录状态, 则跳转到/login界面
         // 如何判断是否登录? 一是localstorge里是否存有用户信息及 token
-
+        // 二是各种接口返回401错误, 说明是未登录状态, 需要重新读取
         // 如果已经登录,则
-        const { from } = this.props.location.state || { from: { pathname: '/' } }
-        const { redirectToReferrer } = this.state
-
-        if (redirectToReferrer) {
+        const { from } = this.props.location.state || { from: { pathname: '/login' } }
+        if(localStorage.user==null || localStorage.user==undefined){
             return (
                 <Redirect to={from}/>
             )
         }
-
 
 
         return (
