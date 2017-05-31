@@ -25,7 +25,6 @@ const enhancer = compose(
     DevTools.instrument()
 )
 
-
 const initialState = {
     login: login.initialState,
 };

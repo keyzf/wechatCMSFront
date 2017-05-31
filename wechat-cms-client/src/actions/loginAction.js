@@ -12,7 +12,11 @@ export const doLogin = ()=> {
         // 发送ajax请求
         login().then(function (response) {
             console.log(response)
-            dispatch({type: loginSuccessActionType})
+            if(response.data.success===true) {
+                dispatch({type: loginSuccessActionType})
+            }else{
+                dispatch({type: loginFailActionType})
+            }
         }).catch(function (error) {
             // 请求失败
             console.log(error);
