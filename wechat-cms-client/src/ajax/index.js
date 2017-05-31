@@ -15,5 +15,15 @@ export const login = () => {
             'Content-Type': 'application/json'
         }
     })
+}
 
+export const logout = () => {
+    return axios({
+        url: '/logout/',
+        method: 'get',
+        data: '',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
 }

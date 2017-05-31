@@ -15,3 +15,5 @@ export const loginSuccessActionType = 'LOGIN_SUCCESS'
 export const loginFailActionType = 'LOGIN_FAIL'
 export const loginErrorActionType = 'LOGIN_ERROR'
 export const loginingActionType = 'LOGINING'
+
+export const logoutActionType = 'LOGOUT'

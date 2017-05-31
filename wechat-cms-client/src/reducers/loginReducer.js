@@ -9,7 +9,7 @@
  * Created by wangjiang on 17/5/18.
  */
 
-import { loginSuccessActionType, loginFailActionType, loginErrorActionType,loginingActionType }  from '../constants/types';
+import { loginSuccessActionType, loginFailActionType, loginErrorActionType,loginingActionType, logoutActionType }  from '../constants/types';
 
 //reducer
 const initialState = {
@@ -30,6 +30,9 @@ const loginReducer = (state = initialState, action) => {
             return Object.assign({}, state, {islogging: false})
         case loginErrorActionType:
             return Object.assign({}, state, {islogging: false})
+        case logoutActionType:
+            // 退出
+            return initialState
         default:
             return initialState
     }

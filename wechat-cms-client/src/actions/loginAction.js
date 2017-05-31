@@ -3,9 +3,9 @@
  */
 
 
-import { loginSuccessActionType, loginFailActionType, loginErrorActionType, loginingActionType }  from '../constants/types';
+import { loginSuccessActionType, loginFailActionType, loginErrorActionType, loginingActionType, logoutActionType }  from '../constants/types';
 
-import {login} from '../ajax'
+import {login, logout} from '../ajax'
 import {store} from '../store'
 import { push } from 'react-router-redux'
 import { message } from 'antd';
@@ -37,3 +37,30 @@ export const doLogin = ()=> {
         });
     }
 }
+
+
+export const doLogout = ()=> {
+    return dispatch => {
+        // 发送ajax请求
+        logout().then(function (response) {
+            console.log(response)
+            if(response.data.success===true) {
+                // 登录成功之后
+                dispatch({type: logoutActionType})
+                message.success('退出成功')
+                // 清空localstorge
+                //localStorage.user = JSON.stringify(response.data.user)
+                //localStorage.token = response.data.token
+                // 成功之后跳转到进入页面
+                store.dispatch(push('/login'))
+
+            }else{
+
+            }
+        }).catch(function (error) {
+            // 请求失败
+            console.log(error);
+        });
+    }
+}
+
