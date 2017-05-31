@@ -5,6 +5,9 @@ import React, { Component } from 'react';
 import "./Login.css"
 import bg from "../asserts/bg.jpeg"
 import {login} from '../ajax'
+import {
+    Redirect,
+} from 'react-router-dom'
 
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
@@ -12,7 +15,8 @@ import { doLogin } from '../actions/loginAction'
 
 import { loginTitle} from '../config'
 
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Spin, Alert } from 'antd'
+import { Form, Icon, Input, Button, Checkbox } from 'antd'
 const FormItem = Form.Item;
 
 
@@ -52,43 +56,61 @@ class NormalLoginForm extends Component {
     }
 
     render() {
+        //this.props.isLogin
+        if (this.props.isLogin) {
+            const { from } = this.props.location.state || { from: { pathname: '/' } }
+            return (
+                <Redirect to={from}/>
+            )
+        }
+
         const { getFieldDecorator } = this.props.form
+        let formContent = (<div>
+            <h2>
+                {loginTitle}
+            </h2>
+            <br/>
+            <FormItem>
+                {getFieldDecorator('userName', {
+                    rules: [{ required: true, message: '请输入用户名!' }],
+                })(
+                    <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="请输入用户名" />
+                )}
+            </FormItem>
+            <FormItem>
+                {getFieldDecorator('password', {
+                    rules: [{ required: true, message: '请输入密码!' }],
+                })(
+                    <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="请输入密码" />
+                )}
+            </FormItem>
+            <FormItem>
+                {getFieldDecorator('remember', {
+                    valuePropName: 'checked',
+                    initialValue: true,
+                })(
+                    <Checkbox>记住我</Checkbox>
+                )}
+                <a className="login-form-forgot" href="">忘记密码</a>
+                <Button type="primary" htmlType="submit" className="login-form-button">
+                    登录
+                </Button>
+                <a href="">马上注册!</a>
+            </FormItem>
+        </div>);
+
+        if (this.props.islogging) {
+            formContent =  (<Spin tip="正在登录, 请稍后...">
+                {formContent}
+            </Spin>)
+        }else{
+
+        }
+
         return (
             <div className="warpcontainer" style={{ backgroundImage: `url(${bg})`  }}>
                 <Form onSubmit={this.handleSubmit} className="login-form">
-                    <h2>
-                        {loginTitle}
-                        isLogin:{this.props.isLogin== true ? "true":"false"}
-                        islogging:{this.props.islogging== true ? "true":"false"}
-                    </h2>
-                    <br/>
-                    <FormItem>
-                        {getFieldDecorator('userName', {
-                            rules: [{ required: true, message: '请输入用户名!' }],
-                        })(
-                            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="请输入用户名" />
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('password', {
-                            rules: [{ required: true, message: '请输入密码!' }],
-                        })(
-                            <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="请输入密码" />
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('remember', {
-                            valuePropName: 'checked',
-                            initialValue: true,
-                        })(
-                            <Checkbox>记住我</Checkbox>
-                        )}
-                        <a className="login-form-forgot" href="">忘记密码</a>
-                        <Button type="primary" htmlType="submit" className="login-form-button">
-                            登录
-                        </Button>
-                        <a href="">马上注册!</a>
-                    </FormItem>
+                    { formContent }
                 </Form>
             </div>
         );
