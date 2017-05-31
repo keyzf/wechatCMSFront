@@ -3,7 +3,7 @@
  */
 
 
-import { loginSuccessActionType, loginFailActionType, loginErrorActionType, loginingActionType, logoutActionType }  from '../constants/types';
+import { loginSuccessActionType, loginFailActionType, loginErrorActionType, loginingActionType, logoutActionType, logoutingActionType }  from '../constants/types';
 
 import {login, logout} from '../ajax'
 import {store} from '../store'
@@ -24,7 +24,7 @@ export const doLogin = ()=> {
                 localStorage.user = JSON.stringify(response.data.user)
                 localStorage.token = response.data.token
                 // 成功之后跳转到进入页面
-                store.dispatch(push('/'))
+                store.dispatch(push('/admin/index'))
 
             }else{
                 message.error('用户名或密码错误, 登录失败')
@@ -41,6 +41,7 @@ export const doLogin = ()=> {
 
 export const doLogout = ()=> {
     return dispatch => {
+        dispatch({type: logoutingActionType})
         // 发送ajax请求
         logout().then(function (response) {
             console.log(response)
@@ -49,8 +50,8 @@ export const doLogout = ()=> {
                 dispatch({type: logoutActionType})
                 message.success('退出成功')
                 // 清空localstorge
-                //localStorage.user = JSON.stringify(response.data.user)
-                //localStorage.token = response.data.token
+                localStorage.removeItem("user")
+                localStorage.removeItem("token")
                 // 成功之后跳转到进入页面
                 store.dispatch(push('/login'))
 

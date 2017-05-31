@@ -18,7 +18,7 @@ import {
     withRouter
 } from 'react-router-dom'
 
-import {Layout, Menu, Breadcrumb, Icon, Dropdown, Button, Row, Col} from 'antd';
+import {Layout, Menu, Breadcrumb, Icon, Dropdown, Button, Row, Col, Spin} from 'antd';
 const { SubMenu } = Menu;
 const {Header, Content, Sider, Footer} = Layout;
 
@@ -75,76 +75,86 @@ class App extends Component {
             </Menu>
         )
 
-        return (
-                <Layout className="container">
-                    <Sider
-                        collapsible
-                        collapsed={this.state.collapsed}
-                        onCollapse={this.onCollapse}
+        const mainLayout = (<Layout className="container">
+            <Sider
+                collapsible
+                collapsed={this.state.collapsed}
+                onCollapse={this.onCollapse}
+            >
+                <div className="logo" />
+                <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['6']}>
+
+                    <SubMenu
+                        key="su1"
+                        title={<span><Icon type="user" /><span className="nav-text">
+                                User</span></span>}
                     >
-                        <div className="logo" />
-                        <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['6']}>
+                    </SubMenu>
 
-                            <SubMenu
-                                key="su1"
-                                title={<span><Icon type="user" /><span className="nav-text">
+                    <SubMenu
+                        key="sub1"
+                        title={<span><Icon type="user" /><span className="nav-text">
                                 User</span></span>}
-                            >
-                            </SubMenu>
-
-                            <SubMenu
-                                key="sub1"
-                                title={<span><Icon type="user" /><span className="nav-text">
-                                User</span></span>}
-                            >
-                                <Menu.Item key="1"><Link to="/admin">Home</Link></Menu.Item>
-                                <Menu.Item key="2"><Link to="/admin/user">user</Link></Menu.Item>
-                                <Menu.Item key="3">Alex</Menu.Item>
-                            </SubMenu>
-                            <SubMenu
-                                key="sub2"
-                                title={<span><Icon type="team" /><span className="nav-text">Team</span></span>}
-                            >
-                                <Menu.Item key="4">Team 1</Menu.Item>
-                                <Menu.Item key="5">Team 2</Menu.Item>
-                            </SubMenu>
-                            <Menu.Item key="6">
+                    >
+                        <Menu.Item key="1"><Link to="/admin">Home</Link></Menu.Item>
+                        <Menu.Item key="2"><Link to="/admin/user">user</Link></Menu.Item>
+                        <Menu.Item key="3">Alex</Menu.Item>
+                    </SubMenu>
+                    <SubMenu
+                        key="sub2"
+                        title={<span><Icon type="team" /><span className="nav-text">Team</span></span>}
+                    >
+                        <Menu.Item key="4">Team 1</Menu.Item>
+                        <Menu.Item key="5">Team 2</Menu.Item>
+                    </SubMenu>
+                    <Menu.Item key="6">
                               <span>
                                 <Icon type="file" />
                                 <span className="nav-text">File</span>
                               </span>
-                            </Menu.Item>
-                        </Menu>
-                    </Sider>
-                    <Layout>
-                        <Header style={{ background: '#fff', padding: 0 }}>
-                            <Row>
-                                <Col span={22}>
-                                </Col>
-                                <Col span={2}>
-                                    <Dropdown overlay={userMenu} placement="bottomCenter">
-                                        <Button shape="circle" icon="user" />
-                                    </Dropdown>
-                                </Col>
-                            </Row>
-                        </Header>
-                        <Content style={{ margin: '0 16px' }}>
-                            <Route path="/admin/index"   component={Home} />
-                            <Route path="/admin/user"   component={User} />
-                        </Content>
-                        <Footer style={{ textAlign: 'center' }}>
-                            辰枫科技©2017 Created by Code V
-                        </Footer>
-                    </Layout>
-                </Layout>
-        );
+                    </Menu.Item>
+                </Menu>
+            </Sider>
+            <Layout>
+                <Header style={{ background: '#fff', padding: 0 }}>
+                    <Row>
+                        <Col span={22}>
+                        </Col>
+                        <Col span={2}>
+                            <Dropdown overlay={userMenu} placement="bottomCenter">
+                                <Button shape="circle" icon="user" />
+                            </Dropdown>
+                        </Col>
+                    </Row>
+                </Header>
+                <Content style={{ margin: '0 16px' }}>
+                    <Route path="/admin/index"   component={Home} />
+                    <Route path="/admin/user"   component={User} />
+                </Content>
+                <Footer style={{ textAlign: 'center' }}>
+                    辰枫科技©2017 Created by Code V
+                </Footer>
+            </Layout>
+        </Layout>)
+
+
+        if(this.props.islogouting){
+            return (
+                <Spin tip="正在退出,请稍候...">
+                    {mainLayout}
+                </Spin>
+                );
+        }else{
+            return mainLayout
+        }
+
     }
 }
 
 //映射Redux state到组件的属性
 function mapStateToProps(state) {
     return {
-
+        islogouting: state.user.islogouting
     }
 }
 //text: state.login.text

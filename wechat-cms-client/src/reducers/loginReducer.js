@@ -2,14 +2,15 @@
  * Created by wangjiang on 17/5/31.
  */
 
-import { loginSuccessActionType, loginFailActionType, loginErrorActionType,loginingActionType, logoutActionType }  from '../constants/types';
+import { loginSuccessActionType, loginFailActionType, loginErrorActionType,loginingActionType, logoutActionType, logoutingActionType}  from '../constants/types';
 
 //reducer
 const initialState = {
     // 登录 默认false
     isLogin: false,
     islogging:false,
-    user:null
+    user:null,
+    islogouting:false,
 }
 
 const loginReducer = (state = initialState, action) => {
@@ -23,6 +24,9 @@ const loginReducer = (state = initialState, action) => {
             return Object.assign({}, state, {islogging: false})
         case loginErrorActionType:
             return Object.assign({}, state, {islogging: false})
+        case logoutingActionType:
+            // 正在退出
+            return Object.assign({}, state, {islogouting: true})
         case logoutActionType:
             // 退出
             return initialState

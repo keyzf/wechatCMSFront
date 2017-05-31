@@ -17,3 +17,4 @@ export const loginErrorActionType = 'LOGIN_ERROR'
 export const loginingActionType = 'LOGINING'
 
 export const logoutActionType = 'LOGOUT'
+export const logoutingActionType = 'LOGOUTING'
