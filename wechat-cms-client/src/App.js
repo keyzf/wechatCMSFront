@@ -41,8 +41,8 @@ class App extends Component {
 
     }
 
-    componentWillMount(){
-        console.log(this.props)
+    componentDidMount(){
+        console.log(this)
     }
 
     render() {
@@ -74,61 +74,61 @@ class App extends Component {
         )
 
         return (
-            <Layout className="container">
-                <Sider
-                    collapsible
-                    collapsed={this.state.collapsed}
-                    onCollapse={this.onCollapse}
-                >
-                    <div className="logo" />
-                    <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['6']}>
-                        <SubMenu
-                            key="sub1"
-                            title={<span><Icon type="user" /><span className="nav-text">
-                            User</span></span>}
-                        >
-                            <Menu.Item key="1"><Link to="/">home</Link></Menu.Item>
-                            <Menu.Item key="2"><Link to="/user">user</Link></Menu.Item>
-                            <Menu.Item key="3">Alex</Menu.Item>
-                        </SubMenu>
-                        <SubMenu
-                            key="sub2"
-                            title={<span><Icon type="team" /><span className="nav-text">Team</span></span>}
-                        >
-                            <Menu.Item key="4">Team 1</Menu.Item>
-                            <Menu.Item key="5">Team 2</Menu.Item>
-                        </SubMenu>
-                        <Menu.Item key="6">
-                          <span>
-                            <Icon type="file" />
-                            <span className="nav-text">File</span>
-                          </span>
-                        </Menu.Item>
-                    </Menu>
-                </Sider>
-                <Layout>
-                    <Header style={{ background: '#fff', padding: 0 }}>
-                        <Row>
-                            <Col span={22}>
-                            </Col>
-                            <Col span={2}>
-                                <Dropdown overlay={userMenu} placement="bottomCenter">
-                                    <Button shape="circle" icon="user" />
-                                </Dropdown>
-                            </Col>
-                        </Row>
-                    </Header>
-                    <Content style={{ margin: '0 16px' }}>
-
-                        <Route path="/"  exact component={Home}></Route>
-                        <Route path="/user" component={User}></Route>
-
-                    </Content>
-                    <Footer style={{ textAlign: 'center' }}>
-                        辰枫科技©2017 Created by Code V
-                    </Footer>
+            <Router>
+                <Layout className="container">
+                    <Sider
+                        collapsible
+                        collapsed={this.state.collapsed}
+                        onCollapse={this.onCollapse}
+                    >
+                        <div className="logo" />
+                        <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['6']}>
+                            <SubMenu
+                                key="sub1"
+                                title={<span><Icon type="user" /><span className="nav-text">
+                                User</span></span>}
+                            >
+                                <Menu.Item key="1"><Link to="home">Home</Link></Menu.Item>
+                                <Menu.Item key="2"><Link to="/user">user</Link></Menu.Item>
+                                <Menu.Item key="3">Alex</Menu.Item>
+                            </SubMenu>
+                            <SubMenu
+                                key="sub2"
+                                title={<span><Icon type="team" /><span className="nav-text">Team</span></span>}
+                            >
+                                <Menu.Item key="4">Team 1</Menu.Item>
+                                <Menu.Item key="5">Team 2</Menu.Item>
+                            </SubMenu>
+                            <Menu.Item key="6">
+                              <span>
+                                <Icon type="file" />
+                                <span className="nav-text">File</span>
+                              </span>
+                            </Menu.Item>
+                        </Menu>
+                    </Sider>
+                    <Layout>
+                        <Header style={{ background: '#fff', padding: 0 }}>
+                            <Row>
+                                <Col span={22}>
+                                </Col>
+                                <Col span={2}>
+                                    <Dropdown overlay={userMenu} placement="bottomCenter">
+                                        <Button shape="circle" icon="user" />
+                                    </Dropdown>
+                                </Col>
+                            </Row>
+                        </Header>
+                        <Content style={{ margin: '0 16px' }}>
+                            <Route path={`${this.props.match.url}home`}   component={Home} />
+                            <Route path="/user"   component={User} />
+                        </Content>
+                        <Footer style={{ textAlign: 'center' }}>
+                            辰枫科技©2017 Created by Code V
+                        </Footer>
+                    </Layout>
                 </Layout>
-            </Layout>
+            </Router>
         );
     }
 }

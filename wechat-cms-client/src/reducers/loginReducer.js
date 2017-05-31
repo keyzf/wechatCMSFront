@@ -1,13 +1,6 @@
 /**
  * Created by wangjiang on 17/5/31.
  */
-/**
- * Created by wangjiang on 17/5/29.
- */
-
-/**
- * Created by wangjiang on 17/5/18.
- */
 
 import { loginSuccessActionType, loginFailActionType, loginErrorActionType,loginingActionType, logoutActionType }  from '../constants/types';
 

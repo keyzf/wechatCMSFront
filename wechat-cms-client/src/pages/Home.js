@@ -11,8 +11,9 @@ import {Breadcrumb} from 'antd';
 
 class Home extends Component {
 
-    componentWillMount(){
-        //console.log(this)
+    componentDidMount(){
+        console.log("HOME...")
+        console.log(this)
     }
 
     render() {

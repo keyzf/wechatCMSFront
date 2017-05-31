@@ -7,6 +7,7 @@ import { ConnectedRouter } from 'react-router-redux'
 import App from './App'
 import Home from './pages/Home'
 import Login from './pages/Login'
+import User from './pages/User'
 
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
@@ -16,7 +17,8 @@ import en_US from 'antd/lib/locale-provider/en_US'
 
 import {
     BrowserRouter as Router,
-    Route
+    Route,
+    Link
 } from 'react-router-dom'
 
 import DevTools from './containers/DevTools'
@@ -25,13 +27,11 @@ import DevTools from './containers/DevTools'
 
 ReactDOM.render(
     <Provider store={store}>
-        <ConnectedRouter history={history}>
+        <ConnectedRouter history={history} routes={data}>
             <LocaleProvider >
                 <div style={{height:'100%'}}>
-                    <Route path="/" exact component={App} >
-                    </Route>
-                    <Route path="/login" component={Login} >
-                    </Route>
+                    <Route path="/" exact component={App} />
+                    <Route path="/login" component={Login} />
                 </div>
             </LocaleProvider>
         </ConnectedRouter>

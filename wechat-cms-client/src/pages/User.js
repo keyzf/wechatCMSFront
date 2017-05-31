@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom'
 
 class User extends Component {
 
-    componentWillMount(){
-        //console.log(this.props.routes)
+    componentDidMount(){
+        console.log("User...")
         console.log(this)
     }
 
