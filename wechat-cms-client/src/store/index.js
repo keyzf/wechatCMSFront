@@ -7,7 +7,6 @@ import rootReducer from '../reducers'
 import login from '../reducers/loginReducer'
 
 import createHistory from 'history/createBrowserHistory'
-import { Route } from 'react-router'
 
 import { routerMiddleware } from 'react-router-redux'
 import thunkMiddleware from 'redux-thunk'
