@@ -19,7 +19,8 @@ import en_US from 'antd/lib/locale-provider/en_US'
 import {
     BrowserRouter as Router,
     Route,
-    Link
+    Link,
+    Redirect
 } from 'react-router-dom'
 
 import DevTools from './containers/DevTools'
@@ -32,7 +33,7 @@ ReactDOM.render(
         <ConnectedRouter history={history}>
             <LocaleProvider >
                 <div style={{height:'100%'}}>
-                    <Route exact path="/" component={App}/>
+                    <Redirect from="/" to="/admin"/>
                     <Route path="/login" component={Login}/>
                     <Route path="/admin" component={App}/>
                     <Route component={NotFound}/>
