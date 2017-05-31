@@ -6,7 +6,6 @@ import React, { Component } from 'react';
 import {Breadcrumb} from 'antd';
 import { Link } from 'react-router-dom'
 
-
 class User extends Component {
 
     componentWillMount(){

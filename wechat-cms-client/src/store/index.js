@@ -16,11 +16,11 @@ import DevTools from '../containers/DevTools'
 
 const history = createHistory()
 
-const middleware = routerMiddleware(history)
+const routingMiddleware = routerMiddleware(history)
 
 const enhancer = compose(
     //你要使用的中间件，放在前面
-    applyMiddleware(middleware,thunkMiddleware),
+    applyMiddleware(routingMiddleware, thunkMiddleware),
     //必须的！启用带有monitors（监视显示）的DevTools
     DevTools.instrument()
 )

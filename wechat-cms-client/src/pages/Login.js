@@ -19,8 +19,6 @@ import { Spin } from 'antd'
 import { Form, Icon, Input, Button, Checkbox } from 'antd'
 const FormItem = Form.Item;
 
-
-
 class NormalLoginForm extends Component {
 
     handleSubmit = (e) => {
