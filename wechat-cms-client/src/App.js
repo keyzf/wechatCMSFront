@@ -40,6 +40,21 @@ class App extends Component {
     //}
 
     render() {
+        // 渲染的时候进行判断, 如果处于未登录状态, 则跳转到/login界面
+        // 如何判断是否登录? 一是localstorge里是否存有用户信息及 token
+
+        // 如果已经登录,则
+        const { from } = this.props.location.state || { from: { pathname: '/' } }
+        const { redirectToReferrer } = this.state
+
+        if (redirectToReferrer) {
+            return (
+                <Redirect to={from}/>
+            )
+        }
+
+
+
         return (
             <Router>
                 <Layout className="container">

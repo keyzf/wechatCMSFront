@@ -17,7 +17,7 @@ export const doLogin = ()=> {
         login().then(function (response) {
             console.log(response)
             if(response.data.success===true) {
-                dispatch({type: loginSuccessActionType})
+                dispatch({type: loginSuccessActionType, payload: response.data.user})
                 message.success('登录成功')
                 // 成功之后跳转到进入页面
                 store.dispatch(push('/'))

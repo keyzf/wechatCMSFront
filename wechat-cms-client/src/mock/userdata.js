@@ -20,13 +20,15 @@ Random.extend({
 
 
 Mock.mock('/login/', {
-    username: 'admin',
-    password: 'admin',
-    email:Mock.mock('@email'),
-    constellation: Mock.mock('@CONSTELLATION'),
-    image:Mock.mock('@Image'),
-    content:Mock.mock('@word'),
-    url: Mock.mock('@url'),
+    user: {
+        username: 'admin',
+        password: 'admin',
+        email: Mock.mock('@email'),
+        constellation: Mock.mock('@CONSTELLATION'),
+        image: Mock.mock('@Image'),
+        content: Mock.mock('@word'),
+        url: Mock.mock('@url'),
+    },
     token:Random.sentence(3),
     success: true
 })

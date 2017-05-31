@@ -46,7 +46,7 @@ class NormalLoginForm extends Component {
 
 
     componentDidMount(){
-        console.log(this)
+        // console.log(this)
     }
 
     render() {

@@ -12,7 +12,7 @@ import {Breadcrumb} from 'antd';
 class Home extends Component {
 
     componentWillMount(){
-        console.log(this.props)
+        //console.log(this)
     }
 
     render() {
