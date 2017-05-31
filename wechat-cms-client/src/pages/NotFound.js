@@ -7,7 +7,7 @@ class NotFound extends Component {
 
     render() {
         return (
-            <div>404 not found</div>
+            <div style={{border:'1px red solid'}}>404 not found</div>
         );
     }
 }

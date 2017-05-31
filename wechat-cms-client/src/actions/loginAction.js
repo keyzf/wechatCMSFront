@@ -46,15 +46,14 @@ export const doLogout = ()=> {
         logout().then(function (response) {
             console.log(response)
             if(response.data.success===true) {
-                // 登录成功之后
+                // 退出成功之后
                 dispatch({type: logoutActionType})
                 message.success('退出成功')
                 // 清空localstorge
                 localStorage.removeItem("user")
                 localStorage.removeItem("token")
-                // 成功之后跳转到进入页面
+                // 退出成功之后跳转到进入页面
                 store.dispatch(push('/login'))
-
             }else{
 
             }

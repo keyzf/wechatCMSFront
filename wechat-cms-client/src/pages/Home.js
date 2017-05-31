@@ -19,13 +19,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                this is home...
-                <br/>
-                dsdds
-                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                dsd
-                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                dsdsdsffs
+                这是控制台总览
             </div>
         );
     }

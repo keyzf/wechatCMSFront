@@ -40,7 +40,6 @@ class App extends Component {
     logout = () => {
         console.log("退出登录");
         this.props.doLogout();
-
     }
 
     componentDidMount(){
@@ -76,65 +75,62 @@ class App extends Component {
         )
 
         const mainLayout = (<Layout className="container">
-            <Sider
-                collapsible
-                collapsed={this.state.collapsed}
-                onCollapse={this.onCollapse}
-            >
-                <div className="logo" />
-                <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['6']}>
 
-                    <SubMenu
-                        key="su1"
-                        title={<span><Icon type="user" /><span className="nav-text">
-                                User</span></span>}
-                    >
-                    </SubMenu>
+                <Sider
+                    collapsible
+                    collapsed={this.state.collapsed}
+                    onCollapse={this.onCollapse}
+                >
+                    <div className="logo"/>
+                    <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['6']}>
 
-                    <SubMenu
-                        key="sub1"
-                        title={<span><Icon type="user" /><span className="nav-text">
-                                User</span></span>}
-                    >
-                        <Menu.Item key="1"><Link to="/admin">Home</Link></Menu.Item>
-                        <Menu.Item key="2"><Link to="/admin/user">user</Link></Menu.Item>
-                        <Menu.Item key="3">Alex</Menu.Item>
-                    </SubMenu>
-                    <SubMenu
-                        key="sub2"
-                        title={<span><Icon type="team" /><span className="nav-text">Team</span></span>}
-                    >
-                        <Menu.Item key="4">Team 1</Menu.Item>
-                        <Menu.Item key="5">Team 2</Menu.Item>
-                    </SubMenu>
-                    <Menu.Item key="6">
+                        <Menu.Item key="1">
+                            <Link to="/admin/index" style={{}}>
                               <span>
-                                <Icon type="file" />
-                                <span className="nav-text">File</span>
+                                <Icon type="windows" />
+                                <span className="nav-text">控制台</span>
                               </span>
-                    </Menu.Item>
-                </Menu>
-            </Sider>
-            <Layout>
-                <Header style={{ background: '#fff', padding: 0 }}>
-                    <Row>
-                        <Col span={22}>
-                        </Col>
-                        <Col span={2}>
-                            <Dropdown overlay={userMenu} placement="bottomCenter">
-                                <Button shape="circle" icon="user" />
-                            </Dropdown>
-                        </Col>
-                    </Row>
-                </Header>
-                <Content style={{ margin: '0 16px' }}>
-                    <Route path="/admin/index"   component={Home} />
-                    <Route path="/admin/user"   component={User} />
-                </Content>
-                <Footer style={{ textAlign: 'center' }}>
-                    辰枫科技©2017 Created by Code V
-                </Footer>
-            </Layout>
+                            </Link>
+                        </Menu.Item>
+
+                        <SubMenu
+                            key="sub1"
+                            title={<span><Icon type="user" /><span className="nav-text">
+                                    用户管理</span></span>}
+                        >
+                            <Menu.Item key="2"><Link to="/admin/user">粉丝管理</Link></Menu.Item>
+                        </SubMenu>
+                        <SubMenu
+                            key="sub2"
+                            title={<span><Icon type="team" /><span className="nav-text">设置</span></span>}
+                        >
+                            <Menu.Item key="5"><Link to="/admin/setting">系统设置</Link></Menu.Item>
+                            <Menu.Item key="6"><Link to="/admin/setting">权限设置</Link></Menu.Item>
+                            <Menu.Item key="7"><Link to="/admin/setting">个人设置</Link></Menu.Item>
+                        </SubMenu>
+                    </Menu>
+                </Sider>
+
+                <Layout>
+                    <Header style={{ background: 'rgb(236,236,236)', padding: 0 }}>
+                        <Row>
+                            <Col span={22}>
+                            </Col>
+                            <Col span={2}>
+                                <Dropdown overlay={userMenu} placement="bottomCenter">
+                                    <Button shape="circle" icon="user" />
+                                </Dropdown>
+                            </Col>
+                        </Row>
+                    </Header>
+                    <Content style={{ background: '#fff', margin: '0 0px' }}>
+                        <Route path="/admin/index"   component={Home} />
+                        <Route path="/admin/user"   component={User} />
+                    </Content>
+                    <Footer style={{ textAlign: 'center' }}>
+                        辰枫科技©2017 Created by Code V
+                    </Footer>
+                </Layout>
         </Layout>)
 
 
