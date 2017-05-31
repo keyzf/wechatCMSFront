@@ -29,8 +29,7 @@ const loginReducer = (state = initialState, action) => {
             return Object.assign({}, state, {islogouting: true})
         case logoutActionType:
             // 退出
-            //initialState
-            return Object.assign({}, state, {islogouting: true})
+            return initialState
         default:
             return initialState
     }
