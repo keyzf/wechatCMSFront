@@ -2,7 +2,7 @@
  * Created by wangjiang on 17/5/29.
  */
 
-import { testActionType, argTestActionType, aysncTestActionType }  from '../constants/test';
+import { testActionType, argTestActionType, aysncTestActionType }  from '../constants/types';
 
 
 export const onTestAction = ()=> ({"type":testActionType});

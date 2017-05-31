@@ -5,8 +5,7 @@
 /**
  * Created by wangjiang on 17/5/18.
  */
-import { combineReducers } from 'redux';
-import { testActionType, argTestActionType, aysncTestActionType }  from '../constants/test';
+import { testActionType, argTestActionType, aysncTestActionType }  from '../constants/types';
 
 //reducer
 const initialState = {

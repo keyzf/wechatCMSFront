@@ -29,7 +29,7 @@ class NormalLoginForm extends Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
-                // 发送请求到服务器登录
+                // 发送请求到服务器登录,这里采用redux
                 //this.props.argTestAction("abcde");
                 //this.props.AsyncTestAction();
 

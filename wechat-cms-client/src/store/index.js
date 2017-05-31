@@ -4,6 +4,7 @@
 
 import { createStore, applyMiddleware, compose} from 'redux';
 import rootReducer from '../reducers'
+import login from '../reducers/loginReducer'
 
 import createHistory from 'history/createBrowserHistory'
 import { Route } from 'react-router'
@@ -25,7 +26,9 @@ const enhancer = compose(
 )
 
 
-const initialState = {};
+const initialState = {
+    login: login.login,
+};
 
 const store = createStore(rootReducer, initialState, enhancer);
 
