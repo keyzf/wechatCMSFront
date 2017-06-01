@@ -3,11 +3,11 @@
  */
 
 import React, { Component } from 'react';
-import {Breadcrumb,Row,Col,Icon} from 'antd';
+import {Breadcrumb,Row,Col,Icon,Form} from 'antd';
 import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import { changeItem } from '../actions/loginAction'
+import UserSearchForm from '../containers/UserSearchForm'
 
 
 class User extends Component {
@@ -17,13 +17,14 @@ class User extends Component {
     }
 
     render() {
+        const WrappedUserSearchForm = Form.create()(UserSearchForm);
 
         return (
             <Row>
                 <Row style={{marginTop:'10px'}}>
                     <Col span={10}>
                         <Breadcrumb  style={{marginLeft:'15px'}}>
-                            <Breadcrumb.Item href="/admin/index" >
+                            <Breadcrumb.Item >
                                     <Icon type="home" />
                                     <span>首页{this.props.menuItemKey}</span>
                             </Breadcrumb.Item>
@@ -31,7 +32,7 @@ class User extends Component {
                                 <Icon type="user" />
                                 <span>用户管理</span>
                             </Breadcrumb.Item>
-                            <Breadcrumb.Item  href="/admin/user" >
+                            <Breadcrumb.Item >
                                 <Icon type="usergroup-add" />
                                 <span>粉丝管理</span>
                             </Breadcrumb.Item>
@@ -39,8 +40,8 @@ class User extends Component {
                     </Col>
                 </Row>
 
-                <Row>
-                    this is user...
+                <Row style={{marginTop:'10px', padding:'20px'}}>
+                    <WrappedUserSearchForm />
                 </Row>
 
             </Row>
