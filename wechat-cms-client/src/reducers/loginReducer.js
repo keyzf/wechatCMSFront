@@ -11,6 +11,7 @@ const initialState = {
     islogging:false,
     user:null,
     islogouting:false,
+
 }
 
 const loginReducer = (state = initialState, action) => {

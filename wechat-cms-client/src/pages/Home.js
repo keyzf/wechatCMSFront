@@ -7,13 +7,17 @@
  */
 import React, { Component } from 'react';
 import {Breadcrumb} from 'antd';
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {  } from '../actions/loginAction'
 
 
 class Home extends Component {
 
+
     componentDidMount(){
-        console.log("HOME...")
-        console.log(this)
+
+
     }
 
     render() {
@@ -25,4 +29,18 @@ class Home extends Component {
     }
 }
 
-export default Home;
+//映射Redux state到组件的属性
+function mapStateToProps(state) {
+    return {
+
+    }
+}
+//text: state.login.text
+
+//映射Redux actions到组件的属性
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

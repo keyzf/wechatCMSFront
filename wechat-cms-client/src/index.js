@@ -26,6 +26,7 @@ import {
 import DevTools from './containers/DevTools'
 
 //<DevTools />
+//<Redirect from="/" exact to="/admin/index"/>
 
 ReactDOM.render(
     <Provider store={store}>
@@ -33,10 +34,8 @@ ReactDOM.render(
         <ConnectedRouter history={history}>
             <LocaleProvider >
                 <div style={{height:'100%'}}>
-                    <Redirect from="/" exact to="/admin/index"/>
                     <Route path="/login" component={Login}/>
                     <Route path="/admin" component={App}/>
-
                 </div>
             </LocaleProvider>
         </ConnectedRouter>

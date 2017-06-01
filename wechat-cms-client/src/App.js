@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import { doLogout } from './actions/loginAction'
+import { doLogout, changeItem} from './actions/loginAction'
 import { ConnectedRouter } from 'react-router-redux'
 import {history} from './store'
 
@@ -47,6 +47,8 @@ class App extends Component {
     }
 
     render() {
+        console.log("重新渲染 App" )
+        console.log(this.props.openKeys )
         // 渲染的时候进行判断, 如果处于未登录状态, 则跳转到/login界面
         // 如何判断是否登录? 一是localstorge里是否存有用户信息及 token
         // 二是各种接口返回401错误, 说明是未登录状态, 需要重新读取
@@ -75,16 +77,15 @@ class App extends Component {
         )
 
         const mainLayout = (<Layout className="container">
-
                 <Sider
                     collapsible
                     collapsed={this.state.collapsed}
                     onCollapse={this.onCollapse}
                 >
                     <div className="logo"/>
-                    <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['6']}>
+                    <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['1']}>
 
-                        <Menu.Item key="1">
+                        <Menu.Item key="1"   >
                             <Link to="/admin/index" style={{}}>
                               <span>
                                 <Icon type="windows" />
@@ -94,7 +95,7 @@ class App extends Component {
                         </Menu.Item>
 
                         <SubMenu
-                            key="sub1"
+                            key="user_message"
                             title={<span><Icon type="user" /><span className="nav-text">
                                     用户管理</span></span>}
                         >
@@ -104,9 +105,9 @@ class App extends Component {
                             key="sub2"
                             title={<span><Icon type="team" /><span className="nav-text">设置</span></span>}
                         >
-                            <Menu.Item key="5"><Link to="/admin/setting">系统设置</Link></Menu.Item>
-                            <Menu.Item key="6"><Link to="/admin/setting">权限设置</Link></Menu.Item>
-                            <Menu.Item key="7"><Link to="/admin/setting">个人设置</Link></Menu.Item>
+                            <Menu.Item key="3"><Link to="/admin/setting">系统设置</Link></Menu.Item>
+                            <Menu.Item key="4"><Link to="/admin/setting">权限设置</Link></Menu.Item>
+                            <Menu.Item key="5"><Link to="/admin/setting">个人设置</Link></Menu.Item>
                         </SubMenu>
                     </Menu>
                 </Sider>
@@ -125,7 +126,7 @@ class App extends Component {
                     </Header>
                     <Content style={{ background: '#fff', margin: '0 0px' }}>
                         <Route path="/admin/index"   component={Home} />
-                        <Route path="/admin/user"   component={User} />
+                        <Route path="/admin/user"   component={User} d="123" />
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>
                         辰枫科技©2017 Created by Code V
@@ -150,7 +151,7 @@ class App extends Component {
 //映射Redux state到组件的属性
 function mapStateToProps(state) {
     return {
-        islogouting: state.user.islogouting
+        islogouting: state.user.islogouting,
     }
 }
 //text: state.login.text
