@@ -22,6 +22,7 @@ const userReducer = (state = initialState, action) => {
         case getUserListErrorActionType:
             return Object.assign({}, state, {loading: false})
         case gettingUserListActionType:
+            console.log("gettingUserListActionType....")
             return Object.assign({}, state, {loading: true})
         case changePaginationActionType:
             return Object.assign({}, state, {pagination:action.payload.pagination})

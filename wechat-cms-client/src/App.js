@@ -26,6 +26,7 @@ class App extends Component {
     state = {
         collapsed: false,
         mode: 'inline',
+        //openKeys:'1'
     };
 
     onCollapse = (collapsed) => {
@@ -42,12 +43,22 @@ class App extends Component {
     }
 
     componentDidMount(){
-        console.log(this)
+        console.log("APP componentDidMount..")
+        //console.log(this)
+        //setTimeout(
+        //    () => {
+        //        this.setState({openKeys:"user_message"});
+        //        console.log('修改openkeys..');
+        //    },
+        //    3000
+        //);
     }
 
     render() {
-        console.log("重新渲染 App" )
-        console.log(this.props.openKeys )
+        console.log("render App..." )
+        //console.log(this)
+        //console.log(this.state.openKeys )
+        //console.log(this.props.openKeys )
         // 渲染的时候进行判断, 如果处于未登录状态, 则跳转到/login界面
         // 如何判断是否登录? 一是localstorge里是否存有用户信息及 token
         // 二是各种接口返回401错误, 说明是未登录状态, 需要重新读取
@@ -82,7 +93,7 @@ class App extends Component {
                     onCollapse={this.onCollapse}
                 >
                     <div className="logo"/>
-                    <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['1']}>
+                    <Menu theme="dark" mode={this.state.mode}  defaultOpenKeys={[this.state.openKeys]} defaultSelectedKeys={['1']}>
 
                         <Menu.Item key="1"   >
                             <Link to="/admin/index" style={{}}>
@@ -155,6 +166,7 @@ class App extends Component {
 function mapStateToProps(state) {
     return {
         islogouting: state.login.islogouting,
+        openKeys:state.login.openKeys
     }
 }
 //text: state.login.text

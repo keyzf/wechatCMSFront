@@ -2,7 +2,7 @@
  * Created by wangjiang on 17/5/31.
  */
 
-import { loginSuccessActionType, loginFailActionType, loginErrorActionType,loginingActionType, logoutActionType, logoutingActionType}  from '../constants/types';
+import { loginSuccessActionType, loginFailActionType, loginErrorActionType,loginingActionType, logoutActionType, logoutingActionType, changeMenuActionType}  from '../constants/types';
 
 //reducer
 const initialState = {
@@ -12,6 +12,8 @@ const initialState = {
     user:null,
     islogouting:false,
 
+    //展开的menu的keys
+    openKeys:'1'
 }
 
 const loginReducer = (state = initialState, action) => {
@@ -31,6 +33,10 @@ const loginReducer = (state = initialState, action) => {
         case logoutActionType:
             // 退出
             return initialState
+        case changeMenuActionType:
+            console.log("changeMenuActionType......")
+            // 改变菜单menu
+            return Object.assign({}, state, {openKeys: action.payload.openKeys})
         default:
             return initialState
     }

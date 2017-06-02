@@ -70,10 +70,7 @@ class UserList extends Component {
     }
 
     componentDidMount() {
-        console.log('开始获取远程数据...')
-        this.props.doFetchUserList({
-
-        })
+        console.log("UserList componentDidMount...")
     }
 
     handleTableChange = (pagination, filters, sorter) => {
@@ -87,7 +84,7 @@ class UserList extends Component {
 
         //// 判断是否current是否发生变化,如果发生变化
         let willPageIndex = pagination.current;
-        if(this.props.pagination.current!= willPageIndex  ){
+        if(this.props.pagination.current!== willPageIndex  ){
             // 跳转到其他页面 ajax进行回调
             this.props.doFetchUserList({
                 page: pagination.current,
@@ -104,6 +101,7 @@ class UserList extends Component {
     }
 
     render() {
+        console.log("render userlist...")
         const rowSelection = {
             selectedRowKeys:this.state.selectedRowKeys,
             onChange: this.onSelectChange,

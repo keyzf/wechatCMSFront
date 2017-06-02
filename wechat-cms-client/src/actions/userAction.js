@@ -6,6 +6,7 @@ import { getUserListSuccessActionType, getUserListFailActionType, getUserListErr
 
 import {getUserList02,getUserList03} from '../ajax'
 
+
 export const doFetchUserList = (args)=> {
     if (args.page !== undefined){
         console.log("当前传的pageIndex是:" + args.page);
