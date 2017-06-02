@@ -37,8 +37,7 @@ class UserList extends Component {
 
     handleTableChange = () => {
         //console.log("触发了table的 onChange..")
-
-        this.props.doFetchUserList();
+        this.props.doFetchUserList(this.props.pagination.currentPage);
     }
 
 

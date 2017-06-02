@@ -6,7 +6,8 @@ import { getUserListSuccessActionType, getUserListFailActionType, getUserListErr
 
 import {getUserList} from '../ajax'
 
-export const doFetchUserList = ()=> {
+export const doFetchUserList = (currentPage)=> {
+    console.log("当前传的page是:" + currentPage);
     return dispatch => {
         dispatch({type: gettingUserListActionType})
         // 发送ajax请求
