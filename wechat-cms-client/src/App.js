@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import { doLogout, changeItem} from './actions/loginAction'
+import { doLogout} from './actions/loginAction'
 import { ConnectedRouter } from 'react-router-redux'
 import {history} from './store'
 
@@ -18,7 +18,7 @@ import {
     withRouter
 } from 'react-router-dom'
 
-import {Layout, Menu, Breadcrumb, Icon, Dropdown, Button, Row, Col, Spin} from 'antd';
+import {Layout, Menu, Breadcrumb, Icon, Dropdown, Button, Row, Col, Spin, Badge} from 'antd';
 const { SubMenu } = Menu;
 const {Header, Content, Sider, Footer} = Layout;
 
@@ -119,7 +119,9 @@ class App extends Component {
                             </Col>
                             <Col span={2}>
                                 <Dropdown overlay={userMenu} placement="bottomCenter">
-                                    <Button shape="circle" icon="user" />
+                                    <Badge count={5}>
+                                        <Button shape="circle" icon="user" />
+                                    </Badge>
                                 </Dropdown>
                             </Col>
                         </Row>
