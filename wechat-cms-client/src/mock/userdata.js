@@ -39,7 +39,7 @@ Mock.mock('/logout/', {
 })
 
 
-Mock.mock('/get_user_list/', {
+Mock.mock('/get_user_list/1/', {
     results:[{
         key: '1',
         name: {
@@ -87,6 +87,101 @@ Mock.mock('/get_user_list/', {
     success:true,
 });
 
+Mock.mock('/get_user_list/2/', {
+    results:[{
+        key: '1',
+        name: {
+            first:'John',
+            last:'Brown'
+        },
+        age: 32,
+        address: 'New York No. 1 Lake Park',
+    }, {
+        key: '2',
+        name: {
+            first:'John',
+            last:'Brown'
+        },
+        age: 42,
+        address: 'London No. 1 Lake Park',
+    }, {
+        key: '3',
+        name: {
+            first:'John',
+            last:'Brown'
+        },
+        age: 32,
+        address: 'Sidney No. 1 Lake Park',
+    }, {
+        key: '4',
+        name: {
+            first:'John',
+            last:'Brown'
+        },
+        age: 32,
+        address: 'London No. 2 Lake Park',
+    },{
+        key: '5',
+        name: {
+            first:'John',
+            last:'Brown'
+        },
+        age: 32,
+        address: 'London No. 2 Lake Park',
+    },],
+    pageSize: 5,
+    current:2,
+    total: 30,
+    success:true,
+});
+
+Mock.mock('/get_user_list/3/', {
+    results:[{
+        key: '1',
+        name: {
+            first:'John',
+            last:'Brown'
+        },
+        age: 44,
+        address: 'New York No. 1 Lake Park',
+    }, {
+        key: '2',
+        name: {
+            first:'John',
+            last:'Brown'
+        },
+        age: 44,
+        address: 'London No. 1 Lake Park',
+    }, {
+        key: '3',
+        name: {
+            first:'John',
+            last:'Brown'
+        },
+        age: 44,
+        address: 'Sidney No. 1 Lake Park',
+    }, {
+        key: '4',
+        name: {
+            first:'John',
+            last:'Brown'
+        },
+        age: 44,
+        address: 'London No. 2 Lake Park',
+    },{
+        key: '5',
+        name: {
+            first:'John',
+            last:'Brown'
+        },
+        age: 32,
+        address: 'London No. 2 Lake Park',
+    },],
+    pageSize: 5,
+    current:3,
+    total: 30,
+    success:true,
+});
 //var data = Mock.mock('/login/', {
 //    // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
 //    'list|1-10': [{

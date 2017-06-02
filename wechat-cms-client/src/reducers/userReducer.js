@@ -2,7 +2,7 @@
  * Created by wangjiang on 17/5/31.
  */
 
-import { getUserListSuccessActionType, getUserListFailActionType, getUserListErrorActionType, gettingUserListActionType}  from '../constants/types';
+import { getUserListSuccessActionType, getUserListFailActionType, getUserListErrorActionType, gettingUserListActionType,  changePaginationActionType}  from '../constants/types';
 
 //reducer
 const initialState = {
@@ -23,6 +23,8 @@ const userReducer = (state = initialState, action) => {
             return Object.assign({}, state, {loading: false})
         case gettingUserListActionType:
             return Object.assign({}, state, {loading: true})
+        case changePaginationActionType:
+            return Object.assign({}, state, {pagination:action.payload.pagination})
         default:
             return initialState
     }

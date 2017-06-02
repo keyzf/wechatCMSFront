@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import './UserList.css'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import { doFetchUserList } from '../actions/userAction'
+import { doFetchUserList, changePagination } from '../actions/userAction'
 import {Table, Icon, Input, Button, } from 'antd';
 
 const columns = [{
@@ -32,17 +32,25 @@ class UserList extends Component {
 
     componentDidMount() {
         console.log('开始获取远程数据...')
-        this.props.doFetchUserList()
+        this.props.doFetchUserList({
+
+        })
     }
 
-    handleTableChange = () => {
-        //console.log("触发了table的 onChange..")
-        this.props.doFetchUserList(this.props.pagination.currentPage);
+    handleTableChange = (pagination, filters, sorter) => {
+        //const pager = { ...this.props.pagination };
+        //pager.current = pagination.current;
+        //this.props.changePagination(pager)
+        this.props.doFetchUserList({
+            page: pagination.current,
+            sortField: sorter.field,
+            sortOrder: sorter.order,
+            ...filters,
+        });
     }
-
 
     render() {
-        console.log(this.props.pagination)
+
         return (
             <Table columns={columns}
                    rowKey={record => record.key}
@@ -68,7 +76,8 @@ function mapStateToProps(state) {
 //映射Redux actions到组件的属性
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
-        doFetchUserList:doFetchUserList
+        doFetchUserList:doFetchUserList,
+        changePagination
     }, dispatch);
 }
 

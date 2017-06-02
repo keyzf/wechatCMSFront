@@ -28,9 +28,9 @@ export const logout = () => {
     })
 }
 
-export const getUserList = () => {
+export const getUserList02 = () => {
     return axios({
-        url: '/get_user_list/',
+        url: '/get_user_list/2/',
         method: 'get',
         data: '',
         headers: {
@@ -39,3 +39,13 @@ export const getUserList = () => {
     })
 }
 
+export const getUserList03 = () => {
+    return axios({
+        url: '/get_user_list/3/',
+        method: 'get',
+        data: '',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+}

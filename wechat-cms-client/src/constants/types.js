@@ -26,3 +26,5 @@ export const getUserListFailActionType = 'GET_USERLIST_FAIL'
 export const getUserListErrorActionType = 'GET_USERLIST_ERROR'
 export const gettingUserListActionType = 'LOADING_USERLIST'
 
+export const changePaginationActionType = 'CHANGE_PAGINATION'
+
