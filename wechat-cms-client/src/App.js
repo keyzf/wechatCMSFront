@@ -129,10 +129,11 @@ class App extends Component {
                     <Content style={{ background: '#fff', margin: '0 0px' }}>
                         <Route path="/admin/index"   component={Home} />
                         <Route path="/admin/user"   component={User} d="123" />
+
+                        <Footer style={{ background: 'rgb(236,236,236)',textAlign: 'center' }}>
+                            辰枫科技©2017 Created by Code V
+                        </Footer>
                     </Content>
-                    <Footer style={{ textAlign: 'center' }}>
-                        辰枫科技©2017 Created by Code V
-                    </Footer>
                 </Layout>
         </Layout>)
 
@@ -153,7 +154,7 @@ class App extends Component {
 //映射Redux state到组件的属性
 function mapStateToProps(state) {
     return {
-        islogouting: state.user.islogouting,
+        islogouting: state.login.islogouting,
     }
 }
 //text: state.login.text

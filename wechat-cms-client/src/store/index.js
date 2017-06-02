@@ -25,7 +25,7 @@ const enhancer = compose(
 )
 
 const initialState = {
-    user: login.initialState,
+    login: login.initialState,
 };
 
 const store = createStore(rootReducer, initialState, enhancer);

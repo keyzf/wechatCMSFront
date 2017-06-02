@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import UserSearchForm from '../containers/UserSearchForm'
+import UserList from '../containers/UserList'
 
 
 class User extends Component {
@@ -44,6 +45,9 @@ class User extends Component {
                     <WrappedUserSearchForm />
                 </Row>
 
+                <Row style={{marginTop:'20px', padding:'20px'}}>
+                    <UserList />
+                </Row>
             </Row>
         );
     }
