@@ -41,11 +41,14 @@ class User extends Component {
                     </Col>
                 </Row>
 
-                <Row style={{marginTop:'10px', padding:'20px'}}>
+                <Row style={{marginTop:'10px', padding:'0 20px'}}>
                     <WrappedUserSearchForm />
                 </Row>
 
-                <Row style={{marginTop:'20px', padding:'20px'}}>
+                <Row style={{marginTop:'10px', padding:'0 20px'}}>
+                    <h2>粉丝列表</h2>
+                </Row>
+                <Row style={{marginTop:'10px', padding:'0 20px'}}>
                     <UserList />
                 </Row>
             </Row>

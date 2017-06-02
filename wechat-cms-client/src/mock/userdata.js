@@ -39,7 +39,7 @@ Mock.mock('/logout/', {
 })
 
 
-Mock.mock('/get_user_list/1/', {
+Mock.mock('/get_user_list/2/', {
     results:[{
         key: '1',
         name: {
@@ -51,7 +51,7 @@ Mock.mock('/get_user_list/1/', {
     }, {
         key: '2',
         name: {
-            first:'John',
+            first:'SD',
             last:'Brown'
         },
         age: 42,
@@ -59,7 +59,7 @@ Mock.mock('/get_user_list/1/', {
     }, {
         key: '3',
         name: {
-            first:'John',
+            first:'SS',
             last:'Brown'
         },
         age: 32,
@@ -67,7 +67,7 @@ Mock.mock('/get_user_list/1/', {
     }, {
         key: '4',
         name: {
-            first:'John',
+            first:'Dddsdsds',
             last:'Brown'
         },
         age: 32,
@@ -75,7 +75,7 @@ Mock.mock('/get_user_list/1/', {
     },{
         key: '5',
         name: {
-            first:'John',
+            first:'33343443',
             last:'Brown'
         },
         age: 32,
@@ -87,7 +87,7 @@ Mock.mock('/get_user_list/1/', {
     success:true,
 });
 
-Mock.mock('/get_user_list/2/', {
+Mock.mock('/get_user_list/3/', {
     results:[{
         key: '1',
         name: {

@@ -12,23 +12,62 @@ import {Table, Icon, Input, Button, } from 'antd';
 const columns = [{
     title: '姓名',
     dataIndex: 'name',
-    sorter: true,
+    //sorter: true,
     render: name => `${name.first} ${name.last}`,
     width: '20%',
+    filters: [{
+        text: 'SS',
+        value: 'SS',
+    }],
+    sorter: (a, b) => {
+        var x = a.name.first.length - b.name.first.length;
+        return x;
+    },
+    onFilter: (value, record) => record.name.first.indexOf(value) === 0,
 }, {
-    title: '性别',
+    title: '年龄',
     dataIndex: 'age',
-    filters: [
-        { text: 'Male', value: 'male' },
-        { text: 'Female', value: 'female' },
-    ],
     width: '20%',
+    sorter: (a, b) => a.age - b.age,
 }, {
-    title: '邮箱',
+    title: '地址',
     dataIndex: 'address',
+    filters: [
+        { text: 'London', value: 'London' },
+        { text: 'New York', value: 'New York' },
+    ],
+    filterMultiple: false,
+    onFilter: (value, record) => record.address.indexOf(value) === 0,
+}, {
+    title: 'Action',
+    key: 'action',
+    render: (text, record) => (
+        <span>
+          <a href="#">Action 一 {record.name.first}</a>
+          <span className="ant-divider" />
+          <a href="#">Delete</a>
+          <span className="ant-divider" />
+          <a href="#" className="ant-dropdown-link">
+              More actions <Icon type="down" />
+          </a>
+        </span>
+    ),
 }];
 
+function isEmpty(obj)
+{
+    for (var name in obj)
+    {
+        return false;
+    }
+    return true;
+};
+
 class UserList extends Component {
+
+    state = {
+        selectedRowKeys: [],
+    }
 
     componentDidMount() {
         console.log('开始获取远程数据...')
@@ -38,21 +77,41 @@ class UserList extends Component {
     }
 
     handleTableChange = (pagination, filters, sorter) => {
-        //const pager = { ...this.props.pagination };
-        //pager.current = pagination.current;
-        //this.props.changePagination(pager)
-        this.props.doFetchUserList({
-            page: pagination.current,
-            sortField: sorter.field,
-            sortOrder: sorter.order,
-            ...filters,
-        });
+        console.log('params', pagination, filters, sorter);
+        console.log(pagination.current);
+
+        //console.log(isEmpty(filters));
+        const pager = { ...this.props.pagination };
+        pager.current = pagination.current;
+        this.props.changePagination(pager)
+
+        //// 判断是否current是否发生变化,如果发生变化
+        let willPageIndex = pagination.current;
+        if(this.props.pagination.current!= willPageIndex  ){
+            // 跳转到其他页面 ajax进行回调
+            this.props.doFetchUserList({
+                page: pagination.current,
+                sortField: sorter.field,
+                sortOrder: sorter.order,
+                ...filters,
+            });
+        }
+    }
+
+    onSelectChange = (selectedRowKeys) => {
+        console.log('selectedRowKeys changed: ', selectedRowKeys);
+        this.setState({ selectedRowKeys });
     }
 
     render() {
-
+        const rowSelection = {
+            selectedRowKeys:this.state.selectedRowKeys,
+            onChange: this.onSelectChange,
+        };
         return (
-            <Table columns={columns}
+            <Table
+                rowSelection={rowSelection}
+                columns={columns}
                    rowKey={record => record.key}
                    dataSource={this.props.userdata}
                    pagination={this.props.pagination}
