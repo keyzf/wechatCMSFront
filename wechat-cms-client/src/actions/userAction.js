@@ -21,6 +21,7 @@ export const doFetchUserList = ()=> {
                             pagination:{
                                 pageSize: response.data.pageSize,
                                 current: response.data.current,
+                                total: response.data.total,
                             }
                         }
                     })

@@ -83,6 +83,7 @@ Mock.mock('/get_user_list/', {
     },],
     pageSize: 5,
     current:2,
+    total: 30,
     success:true,
 });
 

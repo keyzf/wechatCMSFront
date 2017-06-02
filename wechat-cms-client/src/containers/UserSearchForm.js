@@ -9,9 +9,9 @@
  * Created by wangjiang on 17/5/27.
  */
 import React, { Component } from 'react';
-import { Form, Row, Col, Input, Button, Icon,AutoComplete, Cascader,DatePicker,InputNumber,Select } from 'antd';
+import { Form, Row, Col, Input, Button, AutoComplete, Cascader,DatePicker,InputNumber,Select } from 'antd';
 const FormItem = Form.Item;
-const { MonthPicker, RangePicker } = DatePicker;
+const { RangePicker } = DatePicker;
 const Option = Select.Option;
 
 function onSelect(value) {

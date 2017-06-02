@@ -9,8 +9,6 @@ import {bindActionCreators} from 'redux'
 import { doFetchUserList } from '../actions/userAction'
 import {Table, Icon, Input, Button, } from 'antd';
 
-const { Column, ColumnGroup } = Table;
-
 const columns = [{
     title: '姓名',
     dataIndex: 'name',
@@ -38,14 +36,17 @@ class UserList extends Component {
     }
 
     handleTableChange = () => {
-        console.log("触发了table的 onChange..")
+        //console.log("触发了table的 onChange..")
+
+        this.props.doFetchUserList();
     }
 
 
     render() {
+        console.log(this.props.pagination)
         return (
             <Table columns={columns}
-                   rowKey={record => record.registered}
+                   rowKey={record => record.key}
                    dataSource={this.props.userdata}
                    pagination={this.props.pagination}
                    loading={this.props.loading}
