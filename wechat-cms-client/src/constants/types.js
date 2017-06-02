@@ -19,6 +19,9 @@ export const loginingActionType = 'LOGINING'
 export const logoutActionType = 'LOGOUT'
 export const logoutingActionType = 'LOGOUTING'
 
+export const changeMenuActionType = 'CHANGE_MENU'
+
+
 
 // 用户列表相关
 export const getUserListSuccessActionType = 'GET_USERLIST_SUCCESS'
