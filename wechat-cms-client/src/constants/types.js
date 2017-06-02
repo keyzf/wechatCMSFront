@@ -24,4 +24,5 @@ export const logoutingActionType = 'LOGOUTING'
 export const getUserListSuccessActionType = 'GET_USERLIST_SUCCESS'
 export const getUserListFailActionType = 'GET_USERLIST_FAIL'
 export const getUserListErrorActionType = 'GET_USERLIST_ERROR'
+export const gettingUserListActionType = 'LOADING_USERLIST'
 

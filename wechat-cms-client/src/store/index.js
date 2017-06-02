@@ -5,6 +5,7 @@
 import { createStore, applyMiddleware, compose} from 'redux';
 import rootReducer from '../reducers'
 import login from '../reducers/loginReducer'
+import user from '../reducers/userReducer'
 
 import createHistory from 'history/createBrowserHistory'
 
@@ -26,6 +27,7 @@ const enhancer = compose(
 
 const initialState = {
     login: login.initialState,
+    user: user.initialState
 };
 
 const store = createStore(rootReducer, initialState, enhancer);
