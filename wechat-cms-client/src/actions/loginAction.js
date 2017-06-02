@@ -3,7 +3,7 @@
  */
 
 
-import { loginSuccessActionType, loginFailActionType, loginErrorActionType, loginingActionType, logoutActionType, logoutingActionType }  from '../constants/types';
+import { loginSuccessActionType, loginFailActionType, loginErrorActionType, loginingActionType, logoutActionType, logoutingActionType, changeMenuActionType }  from '../constants/types';
 
 import {login, logout} from '../ajax'
 import {store} from '../store'
@@ -64,5 +64,5 @@ export const doLogout = ()=> {
     }
 }
 
-
+export const changeMenu = (args)=> ({"type":changeMenuActionType, payload:{openKeys:args.openKeys}});
 
