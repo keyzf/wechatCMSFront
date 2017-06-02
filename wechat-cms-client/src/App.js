@@ -4,7 +4,6 @@ import './App.css';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import { doLogout} from './actions/loginAction'
-import { ConnectedRouter } from 'react-router-redux'
 import {history} from './store'
 
 import Home from './pages/Home'
@@ -130,13 +129,14 @@ class App extends Component {
                         <Route path="/admin/index"   component={Home} />
                         <Route path="/admin/user"   component={User} d="123" />
 
-                        <Footer style={{ background: 'rgb(236,236,236)',textAlign: 'center' }}>
-                            辰枫科技©2017 Created by Code V
-                        </Footer>
                     </Content>
+
                 </Layout>
         </Layout>)
 
+        //    <Footer style={{ background: 'rgb(236,236,236)',textAlign: 'center' }}>
+        //辰枫科技©2017 Created by Code V
+        //</Footer>
 
         if(this.props.islogouting){
             return (

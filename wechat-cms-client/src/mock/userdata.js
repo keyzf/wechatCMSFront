@@ -38,6 +38,54 @@ Mock.mock('/logout/', {
     success: true
 })
 
+
+Mock.mock('/get_user_list/', {
+    results:[{
+        key: '1',
+        name: {
+            first:'John',
+            last:'Brown'
+        },
+        age: 32,
+        address: 'New York No. 1 Lake Park',
+    }, {
+        key: '2',
+        name: {
+            first:'John',
+            last:'Brown'
+        },
+        age: 42,
+        address: 'London No. 1 Lake Park',
+    }, {
+        key: '3',
+        name: {
+            first:'John',
+            last:'Brown'
+        },
+        age: 32,
+        address: 'Sidney No. 1 Lake Park',
+    }, {
+        key: '4',
+        name: {
+            first:'John',
+            last:'Brown'
+        },
+        age: 32,
+        address: 'London No. 2 Lake Park',
+    },{
+        key: '5',
+        name: {
+            first:'John',
+            last:'Brown'
+        },
+        age: 32,
+        address: 'London No. 2 Lake Park',
+    },],
+    pageSize: 5,
+    current:2,
+    success:true,
+});
+
 //var data = Mock.mock('/login/', {
 //    // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
 //    'list|1-10': [{

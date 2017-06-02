@@ -2,23 +2,28 @@
  * Created by wangjiang on 17/5/31.
  */
 
-
 import { getUserListSuccessActionType, getUserListFailActionType, getUserListErrorActionType, gettingUserListActionType }  from '../constants/types';
 
-import {login, logout} from '../ajax'
-import {store} from '../store'
-import { push } from 'react-router-redux'
-import { message } from 'antd';
+import {getUserList} from '../ajax'
 
 export const doFetchUserList = ()=> {
     return dispatch => {
         dispatch({type: gettingUserListActionType})
         // 发送ajax请求
-        login().then(function (response) {
+        getUserList().then(function (response) {
             console.log(response)
             if(response.data.success===true) {
                 // 登录成功之后
-                dispatch({type: getUserListSuccessActionType, payload: {data:response.data.user}})
+                dispatch(
+                    {type: getUserListSuccessActionType,
+                        payload: {
+                            data:response.data.results,
+                            pagination:{
+                                pageSize: response.data.pageSize,
+                                current: response.data.current,
+                            }
+                        }
+                    })
             }else{
                 dispatch({type: getUserListFailActionType})
             }

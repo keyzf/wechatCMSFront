@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import './UserList.css'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {  } from '../actions/loginAction'
+import { doFetchUserList } from '../actions/userAction'
 import {Table, Icon, Input, Button, } from 'antd';
 
 const { Column, ColumnGroup } = Table;
@@ -19,7 +19,7 @@ const columns = [{
     width: '20%',
 }, {
     title: '性别',
-    dataIndex: 'gender',
+    dataIndex: 'age',
     filters: [
         { text: 'Male', value: 'male' },
         { text: 'Female', value: 'female' },
@@ -27,33 +27,28 @@ const columns = [{
     width: '20%',
 }, {
     title: '邮箱',
-    dataIndex: 'email',
+    dataIndex: 'address',
 }];
 
 class UserList extends Component {
 
-    state = {
-        data: [],
-        pagination: {},
-        loading: false,
-    }
-
     componentDidMount() {
         console.log('开始获取远程数据...')
-        //this.fetch();
+        this.props.doFetchUserList()
     }
 
-    onInputChange = (e) => {
-        this.setState({ searchText: e.target.value });
+    handleTableChange = () => {
+        console.log("触发了table的 onChange..")
     }
+
 
     render() {
         return (
             <Table columns={columns}
                    rowKey={record => record.registered}
-                   dataSource={this.state.data}
-                   pagination={this.state.pagination}
-                   loading={this.state.loading}
+                   dataSource={this.props.userdata}
+                   pagination={this.props.pagination}
+                   loading={this.props.loading}
                    onChange={this.handleTableChange}
             />
         );
@@ -63,7 +58,9 @@ class UserList extends Component {
 //映射Redux state到组件的属性
 function mapStateToProps(state) {
     return {
-
+        userdata: state.user.data,
+        pagination: state.user.pagination,
+        loading: state.user.loading,
     }
 }
 //text: state.login.text
@@ -71,6 +68,7 @@ function mapStateToProps(state) {
 //映射Redux actions到组件的属性
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
+        doFetchUserList:doFetchUserList
     }, dispatch);
 }
 

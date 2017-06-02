@@ -27,3 +27,15 @@ export const logout = () => {
         }
     })
 }
+
+export const getUserList = () => {
+    return axios({
+        url: '/get_user_list/',
+        method: 'get',
+        data: '',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+}
+

@@ -15,6 +15,8 @@ const initialState = {
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case getUserListSuccessActionType:
+            console.log("action......")
+            console.log(action)
             return Object.assign({}, state, {data: action.payload.data, pagination:action.payload.pagination, loading:false})
         case getUserListFailActionType:
             // 不修改原来的state对象返回一个新的state对象

@@ -5,9 +5,7 @@ import {history, store} from './store'
 import { ConnectedRouter } from 'react-router-redux'
 
 import App from './App'
-import Home from './pages/Home'
 import Login from './pages/Login'
-import User from './pages/User'
 import NotFound from './pages/NotFound'
 
 import registerServiceWorker from './registerServiceWorker';
