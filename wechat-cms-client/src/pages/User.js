@@ -17,13 +17,15 @@ class User extends Component {
 
     componentDidMount(){
         console.log("User componentDidMount",this)
-        //this.props.changeMenu(
-        //    {
-        //        openKeys:'sss'
-        //    }
-        //)
-        this.props.doFetchUserList({
-        })
+        this.props.changeMenu(
+            {
+                openKeys:'user_message',
+                selectMenuKey:'2'
+            }
+        )
+        //this.props.doFetchUserList({
+        //
+        //})
     }
     componentWillUnmount() {
         console.log("User componentWillUnmount");
@@ -31,8 +33,8 @@ class User extends Component {
 
     componentWillUpdate(){
         console.log("User componentWillUpdate",this)
-        this.props.doFetchUserList({
-        })
+        //this.props.doFetchUserList({
+        //})
     }
 
     render() {

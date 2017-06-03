@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import { doLogout} from './actions/loginAction'
+import { doLogout, changeMenu} from './actions/loginAction'
+
 import {history} from './store'
 
 import Home from './pages/Home'
@@ -54,6 +55,18 @@ class App extends Component {
         //);
     }
 
+    openMenu = v => {
+        console.log("openMenu",v);
+        this.props.changeMenu(
+            {
+                openKeys:v[v.length - 1]
+            }
+        )
+        //this.setState({
+        //    openKey: v[v.length - 1]
+        //})
+    };
+
     onMenuItemSelect = ({ item, key, selectedKeys }) => {
         console.log(item, key, selectedKeys);
     }
@@ -61,8 +74,8 @@ class App extends Component {
     render() {
         console.log("render App...",this )
         //console.log(this)
-        console.log(this.state.openKeys )
-        //console.log(this.props.openKeys )
+        //console.log(this.state.openKeys )
+        console.log(this.props.openKeys )
         // 渲染的时候进行判断, 如果处于未登录状态, 则跳转到/login界面
         // 如何判断是否登录? 一是localstorge里是否存有用户信息及 token
         // 二是各种接口返回401错误, 说明是未登录状态, 需要重新读取
@@ -90,7 +103,7 @@ class App extends Component {
             </Menu>
         )
 
-        //defaultSelectedKeys={['1']}
+
         const mainLayout = (<Layout className="container">
                 <Sider
                     collapsible
@@ -98,7 +111,13 @@ class App extends Component {
                     onCollapse={this.onCollapse}
                 >
                     <div className="logo"/>
-                    <Menu theme="dark" mode={this.state.mode} onSelect={this.onMenuItemSelect} defaultOpenKeys={[this.state.openKeys]} >
+                    <Menu theme="dark" mode={this.state.mode}
+                          onSelect={this.onMenuItemSelect}
+                          onOpenChange={this.openMenu}
+                          openKeys={[this.props.openKeys]}
+                          defaultSelectedKeys={['1']}
+                          selectedKeys={[this.props.selectMenuKey]}
+                    >
 
                         <Menu.Item key="1"   >
                             <Link to="/admin/index" style={{}}>
@@ -110,7 +129,7 @@ class App extends Component {
                         </Menu.Item>
 
                         <SubMenu
-                            key="sss"
+                            key="user_message"
                             title={<span><Icon type="user" /><span className="nav-text">
                                     用户管理</span></span>}
                         >
@@ -171,7 +190,8 @@ class App extends Component {
 function mapStateToProps(state) {
     return {
         islogouting: state.login.islogouting,
-        openKeys:state.login.openKeys
+        openKeys:state.login.openKeys,
+        selectMenuKey:state.login.selectMenuKey
     }
 }
 //text: state.login.text
@@ -180,6 +200,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
         doLogout:doLogout,
+        changeMenu:changeMenu
     }, dispatch);
 }
 

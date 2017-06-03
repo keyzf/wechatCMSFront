@@ -64,5 +64,5 @@ export const doLogout = ()=> {
     }
 }
 
-export const changeMenu = (args)=> ({"type":changeMenuActionType, payload:{openKeys:args.openKeys}});
+export const changeMenu = (args)=> ({"type":changeMenuActionType, payload:{openKeys:args.openKeys,selectMenuKey:args.selectMenuKey}});
 

@@ -13,7 +13,9 @@ const initialState = {
     islogouting:false,
 
     //展开的menu的keys
-    openKeys:'1'
+    openKeys:'1',
+    //
+    selectMenuKey:'1'
 }
 
 const loginReducer = (state = initialState, action) => {
@@ -36,7 +38,7 @@ const loginReducer = (state = initialState, action) => {
         case changeMenuActionType:
             console.log("changeMenuActionType......")
             // 改变菜单menu
-            return Object.assign({}, state, {openKeys: action.payload.openKeys})
+            return Object.assign({}, state, {openKeys: action.payload.openKeys, selectMenuKey:action.payload.selectMenuKey})
         default:
             return initialState
     }
