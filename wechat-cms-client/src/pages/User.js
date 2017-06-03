@@ -22,6 +22,8 @@ class User extends Component {
         //        openKeys:'sss'
         //    }
         //)
+        this.props.doFetchUserList({
+        })
     }
     componentWillUnmount() {
         console.log("User componentWillUnmount");
@@ -29,6 +31,8 @@ class User extends Component {
 
     componentWillUpdate(){
         console.log("User componentWillUpdate",this)
+        this.props.doFetchUserList({
+        })
     }
 
     render() {
