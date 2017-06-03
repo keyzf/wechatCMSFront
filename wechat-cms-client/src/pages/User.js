@@ -27,6 +27,7 @@ class User extends Component {
         //
         //})
     }
+
     componentWillUnmount() {
         console.log("User componentWillUnmount");
     }

@@ -40,6 +40,7 @@ function mapStateToProps(state) {
 //映射Redux actions到组件的属性
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
+
     }, dispatch);
 }
 

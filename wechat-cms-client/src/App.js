@@ -27,7 +27,6 @@ class App extends Component {
     state = {
         collapsed: false,
         mode: 'inline',
-        //openKeys:'1'
     };
 
     onCollapse = (collapsed) => {
@@ -45,26 +44,16 @@ class App extends Component {
 
     componentDidMount(){
         console.log("APP componentDidMount..")
-        //console.log(this)
-        //setTimeout(
-        //    () => {
-        //        this.setState({openKeys:"user_message"});
-        //        console.log('修改openkeys..');
-        //    },
-        //    3000
-        //);
     }
 
     openMenu = v => {
         console.log("openMenu",v);
         this.props.changeMenu(
             {
-                openKeys:v[v.length - 1]
+                openKeys:v[v.length - 1],
+                selectMenuKey:this.props.selectMenuKey
             }
         )
-        //this.setState({
-        //    openKey: v[v.length - 1]
-        //})
     };
 
     onMenuItemSelect = ({ item, key, selectedKeys }) => {
