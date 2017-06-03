@@ -7,6 +7,7 @@ import './UserList.css'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import { doFetchUserList, changePagination } from '../actions/userAction'
+import {changeMenu} from '../actions/loginAction'
 import {Table, Icon, Input, Button, } from 'antd';
 
 const columns = [{
@@ -72,9 +73,15 @@ class UserList extends Component {
     componentDidMount() {
         console.log("UserList componentDidMount...")
         console.log('开始获取远程数据...')
-        //this.props.doFetchUserList({
-        //
-        //})
+        this.props.doFetchUserList({
+
+        })
+        //this.props.changeMenu(
+        //    {
+        //        openKeys:'user_message',
+        //        selectMenuKey:'2'
+        //    }
+        //)
     }
 
     componentWillUpdate(){
@@ -135,6 +142,8 @@ function mapStateToProps(state) {
         userdata: state.user.data,
         pagination: state.user.pagination,
         loading: state.user.loading,
+        openKeys:state.login.openKeys,
+        selectMenuKey:state.login.selectMenuKey
     }
 }
 //text: state.login.text
@@ -143,7 +152,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
         doFetchUserList:doFetchUserList,
-        changePagination
+        changePagination,
+        changeMenu
     }, dispatch);
 }
 
