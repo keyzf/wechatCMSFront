@@ -54,10 +54,14 @@ class App extends Component {
         //);
     }
 
+    onMenuItemSelect = ({ item, key, selectedKeys }) => {
+        console.log(item, key, selectedKeys);
+    }
+
     render() {
-        console.log("render App..." )
+        console.log("render App...",this )
         //console.log(this)
-        //console.log(this.state.openKeys )
+        console.log(this.state.openKeys )
         //console.log(this.props.openKeys )
         // 渲染的时候进行判断, 如果处于未登录状态, 则跳转到/login界面
         // 如何判断是否登录? 一是localstorge里是否存有用户信息及 token
@@ -86,6 +90,7 @@ class App extends Component {
             </Menu>
         )
 
+        //defaultSelectedKeys={['1']}
         const mainLayout = (<Layout className="container">
                 <Sider
                     collapsible
@@ -93,7 +98,7 @@ class App extends Component {
                     onCollapse={this.onCollapse}
                 >
                     <div className="logo"/>
-                    <Menu theme="dark" mode={this.state.mode}  defaultOpenKeys={[this.state.openKeys]} defaultSelectedKeys={['1']}>
+                    <Menu theme="dark" mode={this.state.mode} onSelect={this.onMenuItemSelect} defaultOpenKeys={[this.state.openKeys]} >
 
                         <Menu.Item key="1"   >
                             <Link to="/admin/index" style={{}}>
@@ -105,7 +110,7 @@ class App extends Component {
                         </Menu.Item>
 
                         <SubMenu
-                            key="user_message"
+                            key="sss"
                             title={<span><Icon type="user" /><span className="nav-text">
                                     用户管理</span></span>}
                         >
@@ -138,7 +143,7 @@ class App extends Component {
                     </Header>
                     <Content style={{ background: '#fff', margin: '0 0px' }}>
                         <Route path="/admin/index"   component={Home} />
-                        <Route path="/admin/user"   component={User} d="123" />
+                        <Route path="/admin/user"   component={User}  />
 
                     </Content>
 

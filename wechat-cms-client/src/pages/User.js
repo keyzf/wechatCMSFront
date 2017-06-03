@@ -17,15 +17,14 @@ class User extends Component {
 
     componentDidMount(){
         console.log("User componentDidMount",this)
-        console.log('开始获取远程数据...')
-        this.props.doFetchUserList({
-
-        })
         //this.props.changeMenu(
         //    {
-        //        openKeys:'user_message'
+        //        openKeys:'sss'
         //    }
         //)
+    }
+    componentWillUnmount() {
+        console.log("User componentWillUnmount");
     }
 
     componentWillUpdate(){

@@ -71,6 +71,15 @@ class UserList extends Component {
 
     componentDidMount() {
         console.log("UserList componentDidMount...")
+        console.log('开始获取远程数据...')
+        this.props.doFetchUserList({
+
+        })
+    }
+
+    componentWillUpdate(){
+        console.log("UserList componentWillUpdate...")
+
     }
 
     handleTableChange = (pagination, filters, sorter) => {
@@ -101,7 +110,7 @@ class UserList extends Component {
     }
 
     render() {
-        console.log("render userlist...")
+        console.log("render userlist...",this.props.userdata)
         const rowSelection = {
             selectedRowKeys:this.state.selectedRowKeys,
             onChange: this.onSelectChange,
